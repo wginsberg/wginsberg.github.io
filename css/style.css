@@ -24,6 +24,7 @@ div.scrollmenu a {
 
 #sidebarCollapse {
     position: absolute;
+    background-color:cadetblue;
 }
 
 
@@ -91,14 +92,14 @@ div.scrollmenu a {
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    margin-bottom: 0;
 }
 
 #sidebar ul p {
     color: #fff;
+    background-color: cadetblue;
     padding: 10px;
-    border-bottom: 2px solid grey;
+    margin-bottom: 0;
 }
 
 #sidebar ul li a {
