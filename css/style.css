@@ -164,22 +164,31 @@ a.article:hover {
     FOOTER
 ----------------------------------------------------- */
 
+footer {
+    height: 32vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+}
+
 .feature {
-    height: 100px;
-    line-height: 100px;
+    height: 16vh;
+    width: 100%;    
     text-align: center;
     color: black;
 }
 
-.feature > span {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
+.feature > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);}
+
+.feature > * > i {
+    display: block;
+    font-size: 5vh;
 }
 
-footer {
-    height: 33vh;
-    width: 100vw;
-    position: absolute;
-    bottom: 0;
+.feature > * > span {
+    white-space: nowrap;
 }
