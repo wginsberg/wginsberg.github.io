@@ -1,4 +1,13 @@
 /* ---------------------------------------------------
+    NAVBAR
+----------------------------------------------------- */
+
+#sidebarCollapse {
+    position: absolute;
+    background-color:cadetblue;
+}
+
+/* ---------------------------------------------------
     HORIZONTAL SCROLLING NAV
 ----------------------------------------------------- */
 ::-webkit-scrollbar {
@@ -19,17 +28,7 @@ div.scrollmenu a {
 }
 
 /* ---------------------------------------------------
-    NAVBAR STYLE
------------------------------------------------------ */
-
-#sidebarCollapse {
-    position: absolute;
-    background-color:cadetblue;
-}
-
-
-/* ---------------------------------------------------
-    SIDEBAR STYLE
+    SIDEBAR 
 ----------------------------------------------------- */
 
 #sidebar {
@@ -161,6 +160,19 @@ a.article:hover {
 }
 
 /* ---------------------------------------------------
+    BODY
+----------------------------------------------------- */
+html, body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+/* ---------------------------------------------------
     FOOTER
 ----------------------------------------------------- */
 
@@ -169,6 +181,13 @@ footer {
     width: 100vw;
     position: absolute;
     bottom: 0;
+}
+
+footer > .container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .feature {
