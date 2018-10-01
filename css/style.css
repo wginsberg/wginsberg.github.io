@@ -14,6 +14,10 @@
     display:none;
 }
 
+.scrollmenu .active {
+  border-bottom: 4px solid #1458a280;
+}
+
 div.scrollmenu {
     overflow: auto;
     white-space: nowrap;
