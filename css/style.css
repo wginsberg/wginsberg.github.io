@@ -37,6 +37,7 @@ div.scrollmenu a {
     top: 0;
     left: -250px;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     z-index: 999;
     background: #d7d7d7;
     color: #fff;
@@ -64,6 +65,7 @@ div.scrollmenu a {
     top: 0;
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     background: rgba(0, 0, 0, 0.7);
     z-index: 998;
     opacity: 0;
@@ -168,6 +170,7 @@ html, body {
 .carousel-item > img {
   max-width: 100%;
   max-height: 60vh;
+  max-height: calc(var(--vh, 1vh) * 60);
   width: auto;
   height: auto;
   margin: 0 auto;
@@ -180,6 +183,7 @@ html, body {
 
 footer {
     height: 32vh;
+    height: calc(var(--vh, 1vh) * 32);
     width: 100vw;
     position: absolute;
     bottom: 0;
@@ -196,6 +200,7 @@ footer > .container {
 
 .feature {
     height: 16vh;
+    height: calc(var(--vh, 1vh) * 16);
     width: 100%;    
     text-align: center;
     color: black;
@@ -212,6 +217,7 @@ footer > .container {
 .feature > * > i {
     display: block;
     font-size: 5vh;
+    font-size: calc(var(--vh, 1vh) * 5);
 }
 
 .feature > * > span {
