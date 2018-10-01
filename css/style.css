@@ -176,6 +176,9 @@ html, body {
   margin: 0 auto;
 }
 
+.carousel-control-prev, .carousel-control-next {
+  z-index: 10;
+}
 
 /* ---------------------------------------------------
     FOOTER
