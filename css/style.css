@@ -234,3 +234,29 @@ footer > .container {
 .feature > * > span {
     white-space: nowrap;
 }
+
+/* ---------------------------------------------------
+    BODY
+----------------------------------------------------- */
+
+.testimonial {
+  margin-bottom: 20px;
+}
+
+.testimonial > .card-body > p {
+  font-style: italic;
+  color: #009966;
+}
+
+.testimonial > .card-body > img {
+  width: fit-content;
+  vertical-align: middle;
+  padding-right: 20px
+}
+
+.testimonial-detail {
+  display: inline-block;
+  height: 100%;
+  line-height: 100%;
+  vertical-align: middle;
+}
