@@ -23,6 +23,79 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/brands.css" integrity="sha384-rf1bqOAj3+pw6NqYrtaE1/4Se2NBwkIfeYbsFdtiR6TQz0acWiwJbv1IM/Nt/ite" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
 
+    <!-- Test score -->
+    <script type="text/javascript" src="js/levelassessment.js"></script>
+    <script language="JavaScript" type="text/JavaScript">
+        function Length_TextField_Validator() {
+            if (form1.txtName.value.length < 1) {
+                // Build alert box message
+                alert("You must enter your name.\n" + "Please fill in all fields marked with * ");
+                // Place the cursor on the field for revision
+                form1.txtName.focus();
+                // return false to stop further processing
+                return (false);
+            }
+
+            if (form1.txtEmail.value.length < 1) {
+                // Build alert box message 
+                alert("You must enter your e-mail.\n" + "Please fill in all fields marked with * ");
+                // Place the cursor on the field for revision
+                form1.txtEmail.focus();
+                // return false to stop further processing
+                return (false);
+            }
+            CalculateScore();
+            document.form1.submit();
+        }
+
+        function test() {
+            alert("in");
+        }
+
+        function MM_openBrWindow(theURL, winName, features) { //v2.0
+            window.open(theURL, winName, features);
+        }
+        function longtestscript(val) {
+            for (i = 0; i < form_name.Private_Type.length; i++)
+                for (u = 0; u < form_name.Group_Type.length; u++)
+            // check everything you need to check and then
+                if (form_name.Course_Type[0].checked)
+                for (i = 0; i < form_name.Private_Type.length; i++)
+                for (u = 0; u < form_name.Group_Type.length; u++)
+                form_name.Private_Type[i].disabled = true;
+            else if (form_name.Course_Type[1].checked)
+                for (i = 0; i < form_name.Private_Type.length; i++)
+                for (u = 0; u < form_name.Group_Type.length; u++)
+                form_name.Group_Type[u].disabled = true;
+            form_name.Private_Type[i].disabled = false;
+        }
+        function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+            if (init == true) with (navigator) {
+                if ((appName == "Netscape") && (parseInt(appVersion) == 4)) {
+                    document.MM_pgW = innerWidth; document.MM_pgH = innerHeight; onresize = MM_reloadPage;
+                } 
+            }
+            else if (innerWidth != document.MM_pgW || innerHeight != document.MM_pgH) location.reload();
+        }
+        MM_reloadPage(true);
+
+        var score;
+    </script>
+    <script language="JavaScript" type="text/JavaScript"> 
+    <!--
+        function menu_goto(menuform) {
+            // see http://www.thesitewizard.com/archive/navigation.shtml
+            // for an explanation of this script and how to use it on your
+            // own site
+            var baseurl = "https://glc-com-mx.firstfind.nl";
+            selecteditem = menuform.newurl.selectedIndex;
+            newurl = menuform.newurl.options[selecteditem].value;
+            if (newurl.length != 0) {
+                location.href = baseurl + newurl;
+            }
+        }
+    //-->
+    </script>
 
 </head>
 
@@ -113,15 +186,16 @@
               <div class="col-12">
                 <h3>Level Assessment Test</h3>
                 <p>Please fill out your name and email address so on completion of the test the results will be automaticly send to the email address left on the form. If you leave an incorect email address you wont receive your results:</p>
-                <form>
+                <form name="form1" method="post" action="sendemail.php3">
                   <div class="form-group">
-                    <label for="inputName">Name</label>
-                    <input type="text" class="form-control" id="inputName">
+                    <label for="txtName">Name</label>
+                    <input type="text" class="form-control" id="txtName" name="txtName">
                   </div>
                   <div class="form-group">
                     <label for="inputEmail">Email address</label>
-                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="txtEmail" name="txtEmail">
                   </div>
+                  <div style="height:15px;"><input type="hidden" id="hiddScore" name="hiddScore" value="0"/></div>
                   <div class="accordion" id="accordion1">
                     <div class="card">
                       <div class="card-header" id="headingOne">
@@ -1084,7 +1158,7 @@
                       </div>
                     </div>
                   </div>
-                  <button type="submit" class="btn mx-auto" style="display: block; width: 100px; margin: 20px 0 20px 0;">Submit</button>
+                  <button type="submit" onclick="Length_TextField_Validator();" class="btn mx-auto" style="display: block; width: 100px; margin: 20px 0 20px 0;">Submit</button>
                 </form>
               </div>
             </div>
