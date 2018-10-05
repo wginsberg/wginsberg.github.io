@@ -1160,12 +1160,12 @@
                 <div class="card">
                   <div class="card-header" id="headingSix">
                     <h5 class="mb-0">
-                      <button disabled class="w-100 btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                      <button class="w-100 btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
                         Additional Information
                       </button>
                     </h5>
                   </div>
-                  <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion6">
+                  <div id="collapseSix" class="collapse show" aria-labelledby="headingSix" data-parent="#accordion6">
                     <div class="card-body">
                       <div class="form-group">
                         <label>Message</label>
@@ -1210,7 +1210,7 @@
                 </div>
               </div>
               <p>By clicking the 'Submit' button below I agree to the <a href="http://www.glc.com.mx/terms.htm" target="_blank">Terms and Conditions</a></p>
-              <button type="submit" class="btn mx-auto" disabled style="display: block; width: 100px; margin: 20px 0 20px 0;">Submit</button>
+              <button onclick="preValidate()" type="submit" class="btn mx-auto" style="display: block; width: 100px; margin: 20px 0 20px 0;">Submit</button>
             </form>
           </div>
         </div>
@@ -1231,6 +1231,14 @@
 
   <!-- Sidebar -->
   <script src="js/sidebar.js"></script>
+
+  <!-- Form Validation -->
+  <script type="text/javascript">
+    var preValidate = () => {
+      $(".accordion button").removeAttr('disabled');
+      $(".collapse").addClass("show")
+    }
+  </script>
 
 </body>
 
