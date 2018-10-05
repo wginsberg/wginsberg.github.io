@@ -15,7 +15,7 @@
 }
 
 .scrollmenu .active {
-  border-bottom: 4px solid #1458a280;
+  border-bottom: 4px solid #a4bcda;
 }
 
 div.scrollmenu {
@@ -25,10 +25,12 @@ div.scrollmenu {
     border-bottom: solid 1px grey;
     margin: 5px 0 5px 0;
     padding: 5px 0 5px 0;
+    background-color: #4e8cdf;
 }
 
 div.scrollmenu a {
     padding: 5px 14px 5px 14px;
+    color: white;
 }
 
 /* ---------------------------------------------------
