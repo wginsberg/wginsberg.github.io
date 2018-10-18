@@ -160,7 +160,7 @@ mail("application <application@glc.com.mx>", "application form ", $email_body, "
 
 # Redirect user to OK page
 
- header("Location: http://www.glc.com.mx/deposit.htm");
+ header("Location: http://www.glc.com.mx/mobile/deposit.html");
 //echo "Thankyou $First_Name, you have successfully completed the application";
  exit;
 # End of PHP script
