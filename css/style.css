@@ -211,6 +211,16 @@ footer > .container {
     transform: translateX(-50%);
 }
 
+.feature-full {
+  margin-right: 0;
+  margin-left: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #1558a25c;
+  color: black;
+}
+
 .feature {
     height: 16vh;
     height: calc(var(--vh, 1vh) * 16);
