@@ -218,7 +218,10 @@ footer > .container {
   padding-bottom: 10px;
   text-align: center;
   background-color: #1558a25c;
-  color: black;
+  color: white;
+  text-shadow: #000 0px 0px 2px,   #000 0px 0px 2px,   #000 0px 0px 2px,
+             #000 0px 0px 2px,   #000 0px 0px 2px,   #000 0px 0px 2px;  
+  -webkit-font-smoothing: antialiased
 }
 
 .feature {
