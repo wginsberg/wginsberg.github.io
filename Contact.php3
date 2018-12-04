@@ -45,6 +45,8 @@ $error_msg='ERROR - not sent. Try again.';
 
 $success_sent_msg= header("Location: http://www.glc.com.mx/mobile/success_contact.html");
 
+$ref_page=$_SERVER["HTTP_REFERER"];
+
 $replymessage = "Hi $name
 
 Thank you for your email.
@@ -68,7 +70,6 @@ if (!isset($_POST['email']))
  exit;
 }
 
-$ref_page=$_SERVER["HTTP_REFERER"];
 $valid_referrer=0;
 if($ref_page==$valid_ref1) $valid_referrer=1;
 elseif($ref_page==$valid_ref2) $valid_referrer=1;
