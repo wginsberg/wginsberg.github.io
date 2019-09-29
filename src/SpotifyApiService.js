@@ -17,7 +17,7 @@ const authorize = () => {
   } else {
     var url = 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
-    url += '&scope=' + encodeURIComponent('playlist-read-private');
+    url += '&scope=' + encodeURIComponent('user-read-recently-played');
     url += '&client_id=' + encodeURIComponent(client_id);
     url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
 
@@ -28,7 +28,7 @@ const authorize = () => {
 const playlists = () => {
   console.log('fetching playlists...');
 
-  return axios.get('https://api.spotify.com/v1/me/playlists').then(response => console.log(response));
+  return axios.get('https://api.spotify.com/v1/me/player/recently-played');
 }
 
 export { authorize, playlists };
