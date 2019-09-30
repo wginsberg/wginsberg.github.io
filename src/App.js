@@ -3,28 +3,36 @@ import logo from './logo.svg';
 import './App.css';
 
 import { authorize, playlists } from './SpotifyApiService';
-import Track from './Track';
+import { tabs } from './SongsterrApiService';
+// import Track from './Track';
+import Tab from './Tab';
 
 class App extends React.Component {
 
   state = {
-    tracks: []
+    tracks: [],
+    tabs: []
   }
 
   componentDidMount() {
     authorize();
     playlists()
-      .then(response =>
-        response.data.items.map(item => item.track)
+      .then(response => response.data.items.map(item => item.track))
+      .then(tracks =>
+        tracks
+          .map(track => track.artists[0].name)
+          .map(artist => 
+            tabs(artist)
+              .then(response => response.data)
+              .then(tabs => this.setState(state => ({ tabs: [...state.tabs, ...tabs] }))))
       )
-      .then(tracks => this.setState({ tracks }));
   }
 
   render() {
     return (
       <div className="App">
-        {this.state.tracks.map((track, i) =>
-          <Track track={track} key={i} />)}
+        {this.state.tabs.map((tab, i) =>
+          <Tab tab={tab} key={i} />)}
       </div>
     );
   }
