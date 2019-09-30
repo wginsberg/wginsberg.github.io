@@ -18,10 +18,10 @@ class App extends React.Component {
     authorize();
     playlists()
       .then(response => response.data.items.map(item => item.track))
-      .then(tracks =>
-        tracks
-          .map(track => track.artists[0].name)
-          .map(artist => 
+      .then(tracks => tracks.map(track => track.artists[0].name))
+      .then(artists => [...new Set(artists)])
+      .then(artists => artists.map(
+        artist => 
             tabs(artist)
               .then(response => response.data)
               .then(tabs => this.setState(state => ({ tabs: [...state.tabs, ...tabs] }))))
