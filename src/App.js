@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import classes from './App.module.css';
 
 import { authorize, playlists } from './SpotifyApiService';
 import { tabs } from './SongsterrApiService';
@@ -22,29 +23,30 @@ class App extends React.Component {
     } else {
       authorize();
       playlists()
-        .then(response => response.data.items.map(item => item.track))
+        // .then(response => response.data.items.map(item => item.track))
 
-        .then(tracks => tracks.map(track => track.artists[0].name))
-        .then(artists => [...new Set(artists)])
-        .then(artists => artists.map(
-          artist => 
-              tabs(artist)
-                .then(response => response.data)
-                .then(tabs => this.setState(state => ({ tabs: [...state.tabs, ...tabs] }))))
-        )
+        // .then(tracks => tracks.map(track => track.artists[0].name))
+        // .then(artists => [...new Set(artists)])
+        // .then(artists => artists.map(
+        //   artist => 
+        //       tabs(artist)
+        //         .then(response => response.data)
+        //         .then(tabs => this.setState(state => ({ tabs: [...state.tabs, ...tabs] }))))
+        // )
     }
   }
 
   render() {
     return (
       <div className="App">
-        {this.state.items.map(({ tab, openGraphData }, i) =>
-          (<Tab 
-            url={openGraphData.openGraph.url}
-            name={openGraphData.openGraph.name}
-            description={openGraphData.openGraph.description}
-            imageURL={openGraphData.openGraph.image.url}
-          />))}
+        <div className={classes.TabList}>
+          {this.state.items.map(({ track, tab, openGraphData }, i) =>
+            (<Tab 
+              track={track}
+              tab={tab}
+              openGraphData={openGraphData}
+            />))}
+        </div>
       </div>
     );
   }

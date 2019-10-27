@@ -1,0 +1,10 @@
+.TabList {
+    margin: auto;
+    width: 100%;
+    max-width: 640px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
