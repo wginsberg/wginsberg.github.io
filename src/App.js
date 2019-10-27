@@ -7,7 +7,7 @@ import { authorize, playlists } from './SpotifyApiService';
 import { tabs } from './SongsterrApiService';
 import { unfurl } from './OpenGraphService';
 // import Track from './Track';
-import Tab from './Tab';
+import Tab from './Tab/Tab';
 
 class App extends React.Component {
   state = {

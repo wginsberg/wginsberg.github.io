@@ -1,4 +1,6 @@
 import React from 'react';
+import classnames from 'classnames';
+import classes from './Tab.module.css';
 
 const Tab = (props) => {
   const { album: { images: [{ url: imageURL }] } } = props.track;
@@ -8,7 +10,7 @@ const Tab = (props) => {
   const { title } = props.tab;
   const { name: artistName } = props.tab.artist;
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <div className={classnames([classes.Tab, 'max-w-sm rounded overflow-hidden shadow-lg'])}>
       <a href={url}>
         <img alt={siteName} src={imageURL} className="w-full" />
         <div className="font-bold text-xl mb-2">{title}</div>
