@@ -1,13 +1,11 @@
 import React from 'react';
 
-const Tab = props => {
-    const href = `http://www.songsterr.com/a/wa/song?id=${props.tab.id}`;
-
-    return <p>
-        <a href={href}>
-            {props.tab.title} - {props.tab.artist.name}
-        </a>
-    </p>
-}
+const Tab = (props) => (
+  <a href={props.url}>
+    <h3>{props.title}</h3>
+    <img src={props.imageURL} />
+    <span>{props.description}</span>
+  </a>
+);
 
 export default Tab;
