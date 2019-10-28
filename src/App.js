@@ -17,15 +17,40 @@ class App extends React.Component {
     tabs: []
   }
 
+  // async fetchData = () => {
+  //   await authorize();
+  //   const playlists = await playlists()
+  //   const tracks = playlists.data.items.map(item => item.track);
+
+  //   const artistsWithDuplicates = tracks.map(track => track.artists[0].name);
+  //   // const artists = [...new Set(artistsWithDuplicates)];
+  //   const artist = artistsWithDuplicates[0];
+
+  //   const tabs = await tabs(artist).then(response => response.data);
+
+
+  //   const items = tabs.map((tab, i) => ({track, }))
+  //   this.setState({})
+
+  //   // const openGraphData = await unfurl(tabs)
+  // };
+
   componentDidMount() {
     if (this.props.state) {
       this.setState(this.props.state);
     } else {
       authorize();
       playlists()
-        // .then(response => response.data.items.map(item => item.track))
+        .then(response => response.data.items.map(item => item.track))
+
+        // .then(tracks => this.setState({tracks}));
+
+        .then(tracks => tracks.map(track => ({track})))
 
         // .then(tracks => tracks.map(track => track.artists[0].name))
+
+        .then(items => items.map(({ track }) => track.artists[0].name))
+
         // .then(artists => [...new Set(artists)])
         // .then(artists => artists.map(
         //   artist => 
@@ -40,11 +65,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className={classes.TabList}>
-          {this.state.items.map(({ track, tab, openGraphData }, i) =>
+          {this.state.items.map(({ track, tab, url }, i) =>
             (<Tab 
               track={track}
               tab={tab}
-              openGraphData={openGraphData}
+              url={url}
             />))}
         </div>
       </div>
