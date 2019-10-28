@@ -15,7 +15,7 @@ const authorize = () => {
   } else {
     let url = 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
-    url += `&scope=${encodeURIComponent('user-read-recently-played')}`;
+    url += `&scope=${encodeURIComponent('user-top-read')}`;
     url += `&client_id=${encodeURIComponent(clientId)}`;
     url += `&redirect_uri=${encodeURIComponent(redirectURI)}`;
 
@@ -23,8 +23,11 @@ const authorize = () => {
   }
 };
 
-const playlists = () => {
-  return axios.get('https://api.spotify.com/v1/me/player/recently-played?limit=1');
+const playlists = () => axios.get('https://api.spotify.com/v1/me/player/recently-played?limit=1');
+
+const topArtists = offset => {
+  const baseApiUrl = 'https://api.spotify.com/v1/me/top/artists';
+  return axios.get(`${baseApiUrl}?limit=1&offset=${offset}&time_range=short_term`);
 };
 
-export { authorize, playlists };
+export { authorize, playlists, topArtists };

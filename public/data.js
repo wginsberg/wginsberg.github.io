@@ -79,9 +79,42 @@ const tab = {
   tabTypes: ['PLAYER', 'TEXT_GUITAR_TAB', 'TEXT_BASS_TAB'],
 };
 
+const artist = {
+  external_urls: {
+    spotify: 'https://open.spotify.com/artist/6A7uqgC2N1nUhrCLAytHxN',
+  },
+  followers: {
+    href: null,
+    total: 126614,
+  },
+  genres: ['alternative emo', 'canadian pop punk', 'canadian punk', 'indie punk', 'modern rock', 'toronto indie'],
+  href: 'https://api.spotify.com/v1/artists/6A7uqgC2N1nUhrCLAytHxN',
+  id: '6A7uqgC2N1nUhrCLAytHxN',
+  images: [{
+    height: 640,
+    url: 'https://i.scdn.co/image/fd9910bf3f6b498c2a3937a178114cc53f127f28',
+    width: 640,
+  }, {
+    height: 320,
+    url: 'https://i.scdn.co/image/060809648034b5717b9e32842692537777f8a025',
+    width: 320,
+  }, {
+    height: 160,
+    url: 'https://i.scdn.co/image/51e96ef7356eb4e683a864fc63675f41766d4d75',
+    width: 160,
+  }],
+  name: 'PUP',
+  popularity: 59,
+  type: 'artist',
+  uri: 'spotify:artist:6A7uqgC2N1nUhrCLAytHxN',
+};
+
 const item = { track, tab, url: 'https://www.songsterr.com/a/wsa/alice-cooper-feed-my-frankenstein-tab-s24995t0' };
 
 const data = {
+  artists: [
+    artist,
+  ],
   items: [item],
 };
 

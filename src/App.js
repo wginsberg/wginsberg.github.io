@@ -1,76 +1,85 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import classes from './App.module.css';
 
-import { authorize, playlists } from './SpotifyApiService';
+import { authorize, topArtists } from './SpotifyApiService';
 import { tabs } from './SongsterrApiService';
-import { unfurl } from './OpenGraphService';
 // import Track from './Track';
 import Tab from './Tab/Tab';
 
 class App extends React.Component {
-  state = {
-    items: [],
-    //
-    tracks: [],
-    tabs: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+      artists: [],
+    };
   }
-
-  // async fetchData = () => {
-  //   await authorize();
-  //   const playlists = await playlists()
-  //   const tracks = playlists.data.items.map(item => item.track);
-
-  //   const artistsWithDuplicates = tracks.map(track => track.artists[0].name);
-  //   // const artists = [...new Set(artistsWithDuplicates)];
-  //   const artist = artistsWithDuplicates[0];
-
-  //   const tabs = await tabs(artist).then(response => response.data);
-
-
-  //   const items = tabs.map((tab, i) => ({track, }))
-  //   this.setState({})
-
-  //   // const openGraphData = await unfurl(tabs)
-  // };
 
   componentDidMount() {
     if (this.props.state) {
       this.setState(this.props.state);
     } else {
-      authorize();
-      playlists()
-        .then(response => response.data.items.map(item => item.track))
+      this.fetchData().then(data => this.setState(data));
 
-        // .then(tracks => this.setState({tracks}));
+      // fetchData(data => this.setState(data));
 
-        .then(tracks => tracks.map(track => ({track})))
+      // authorize();
+      // playlists()
+      //   .then(response => response.data.items.map(item => item.track))
 
-        // .then(tracks => tracks.map(track => track.artists[0].name))
+      //   // .then(tracks => this.setState({tracks}));
 
-        .then(items => items.map(({ track }) => track.artists[0].name))
+      //   .then(tracks => tracks.map(track => ({track})))
 
-        // .then(artists => [...new Set(artists)])
-        // .then(artists => artists.map(
-        //   artist => 
-        //       tabs(artist)
-        //         .then(response => response.data)
-        //         .then(tabs => this.setState(state => ({ tabs: [...state.tabs, ...tabs] }))))
-        // )
+      //   // .then(tracks => tracks.map(track => track.artists[0].name))
+
+      //   .then(items => items.map(({ track }) => track.artists[0].name))
+
+      //   // .then(artists => [...new Set(artists)])
+      //   // .then(artists => artists.map(
+      //   //   artist =>
+      //   //       tabs(artist)
+      //   //         .then(response => response.data)
+      //   //         .then(tabs => this.setState(state => ({ tabs: [...state.tabs, ...tabs] }))))
+      //   // )
     }
+  }
+
+
+  async fetchData() {
+    await authorize();
+    const artists = await topArtists(this.state.artists.length)
+      .then(response => response.data.items);
+
+    return { artists };
+
+    // const tracks = playlists.data.items.map(item => item.track);
+
+    // const artistsWithDuplicates = tracks.map(track => track.artists[0].name);
+    // // const artists = [...new Set(artistsWithDuplicates)];
+    // const artist = artistsWithDuplicates[0];
+
+    // const tabs = await tabs(artist).then(response => response.data);
+
+
+    // const items = tabs.map((tab, i) => ({track, }))
+    // this.setState({})
+
+    // // const openGraphData = await unfurl(tabs)
   }
 
   render() {
     return (
       <div className="App">
         <div className={classes.TabList}>
-          {this.state.items.map(({ track, tab, url }, i) =>
-            (<Tab 
+          {this.state.items.map(({ track, tab, url }, i) => (
+            <Tab
               track={track}
               tab={tab}
               url={url}
-            />))}
+            />
+          ))}
         </div>
       </div>
     );
