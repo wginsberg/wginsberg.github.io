@@ -21,6 +21,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    "arrow-parens": 0,
     "react/prop-types": 0,
     "react/destructuring-assignment": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
