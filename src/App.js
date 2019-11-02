@@ -47,7 +47,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="text-center">
+      <div>
         <div className={classes.TabList}>
           {this.state.items.map((track, i) => (<Tab key={i} track={track} />))}
         </div>
