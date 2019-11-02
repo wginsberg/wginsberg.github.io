@@ -23,9 +23,10 @@ const authorize = () => {
   }
 };
 
-const topTracks = () => {
+const topTracks = page => {
+  const pageSize = 25;
   const baseApiUrl = 'https://api.spotify.com/v1/me/top/tracks';
-  return axios.get(`${baseApiUrl}?limit=5&time_range=short_term`);
+  return axios.get(`${baseApiUrl}?limit=${pageSize}&offset=${page * pageSize}&time_range=short_term`);
 };
 
 export { authorize, topTracks };

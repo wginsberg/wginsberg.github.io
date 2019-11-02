@@ -11,21 +11,33 @@ class App extends React.Component {
     super(props);
     this.state = {
       items: [],
+      page: 0
     };
   }
 
-
-  async fetchData() {
-    await authorize();
-    const tracks = await topTracks().then(response => response.data.items);   
-    return { items: tracks };
+  loadNextPage = () => {
+    // Test mode
+    if (this.props.state) {
+      return;
+    }
+    topTracks(this.state.page)
+      .then(response => 
+        this.setState(state => 
+          ({ 
+            page: state.page + 1, 
+            items: [...state.items, ...response.data.items]
+          })
+          )
+      )
   }
 
   componentDidMount() {
+    // Test mode
     if (this.props.state) {
       this.setState(this.props.state);
     } else {
-      this.fetchData().then(data => this.setState(data));
+      authorize();
+      this.loadNextPage();
     }
   }
 
@@ -35,6 +47,7 @@ class App extends React.Component {
         <div className={classes.TabList}>
           {this.state.items.map((track, i) => (<Tab key={i} track={track} />))}
         </div>
+        <button onClick={this.loadNextPage} className="m-8">Load more</button>
       </div>
     );
   }
