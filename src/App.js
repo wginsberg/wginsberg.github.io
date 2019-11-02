@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
 import classes from './App.module.css';
 
-import { authorize, topTracks } from './SpotifyApiService';
+import SpotifyApiService from './SpotifyApiService';
 
 import Tab from './Tab/Tab';
 
@@ -20,15 +19,21 @@ class App extends React.Component {
     if (this.props.state) {
       return;
     }
-    topTracks(this.state.page)
-      .then(response => 
-        this.setState(state => 
-          ({ 
-            page: state.page + 1, 
-            items: [...state.items, ...response.data.items]
-          })
-          )
-      )
+    else {
+      if (!this.spotifyApiService) {
+        this.spotifyApiService = new SpotifyApiService();
+      }
+      this.spotifyApiService
+        .topTracks(this.state.page)
+        .then(response => 
+          this.setState(state => 
+            ({ 
+              page: state.page + 1, 
+              items: [...state.items, ...response.data.items]
+            })
+            )
+        )
+    }
   }
 
   componentDidMount() {
@@ -36,14 +41,13 @@ class App extends React.Component {
     if (this.props.state) {
       this.setState(this.props.state);
     } else {
-      authorize();
       this.loadNextPage();
     }
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="text-center">
         <div className={classes.TabList}>
           {this.state.items.map((track, i) => (<Tab key={i} track={track} />))}
         </div>
