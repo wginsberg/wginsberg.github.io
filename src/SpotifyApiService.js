@@ -23,11 +23,9 @@ const authorize = () => {
   }
 };
 
-const playlists = () => axios.get('https://api.spotify.com/v1/me/player/recently-played?limit=1');
-
-const topArtists = offset => {
-  const baseApiUrl = 'https://api.spotify.com/v1/me/top/artists';
-  return axios.get(`${baseApiUrl}?limit=1&offset=${offset}&time_range=short_term`);
+const topTracks = () => {
+  const baseApiUrl = 'https://api.spotify.com/v1/me/top/tracks';
+  return axios.get(`${baseApiUrl}?limit=5&time_range=short_term`);
 };
 
-export { authorize, playlists, topArtists };
+export { authorize, topTracks };
