@@ -1,0 +1,61 @@
+<head>
+    <style>
+        ol {
+            list-style: none;
+        }
+        ol li {
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <ol id="words"></ol>
+    </main>
+</body>
+<script>
+    const e = document.getElementById("words")
+
+    function allWords(length) {
+        if (length === 0) return [""]
+        const chars = "abcdefghijklmnopqrstuvwxyz"
+        const prevWords = allWords(length - 1)
+        const nextWords = []
+        for (const char of chars) {
+            for (const word of prevWords) {
+                const newWord = word + char
+                nextWords.push(newWord)
+            }
+        }
+        return nextWords
+    }
+
+    function* generateOne() {
+        for (const length of [1,2,3,4]) {
+            console.log({length})
+            const words = allWords(length)
+            for (const word of words) {
+                yield word
+            }
+        }
+    }
+
+    async function sleep(milliseconds) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, milliseconds)
+        })
+    }
+
+    async function generateAll() {
+        for (const next of generateOne()) {
+            const li = document.createElement("li")
+            li.textContent = next
+            e.appendChild(li)
+            await sleep(50)
+        }
+    }
+
+    generateAll()
+    console.log("hi")
+</script>
