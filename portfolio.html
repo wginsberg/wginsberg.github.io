@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will Ginsberg | Portfolio</title>
+    <style>
+        html {
+            font-family: system-ui;
+            display: flex;
+        }
+        body {
+            max-width: 720px;
+            margin: auto;
+            padding: 16px;
+
+            background-image: url("portfolio/memphis/OMEGGK0.jpg");
+            background-size: contain;
+        }
+        h1 {
+            margin: 0;
+        }
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        h2 a {
+            color: black;
+        }
+        section, .section {
+            background: white;
+            box-shadow: 8px 8px black;
+            border: 4px solid black;
+            padding: 12px;
+            margin-bottom: 32px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            border-radius: 1rem;
+            background-color: lightblue;
+            padding: 4px 8px;
+        }
+        .tag-secondary {
+            background-color: rgb(186, 240, 186);
+        }
+        .tag-tertiary {
+            background-color: lightyellow;
+        }
+        .screenshot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .screenshot img {
+            max-width: 100%;
+            max-height: 480px;
+            box-sizing: border-box;
+            border: 4px solid grey;
+            border-radius: 36px;
+            box-shadow: 4px 4px 10px black;
+        }
+        footer {
+            display: flex;
+            justify-content: center;
+        }
+        footer .attribution {
+            padding: 8px;
+            background-color: white;
+            font-size: small;
+        }
+    </style>
+  </head>
+  <body>
+    <main>
+        <div class="section">
+            <h1>My projects</h1>
+            <br>
+            <nav>
+                <a href="/">Back home</a>
+            </nav>
+        </div>
+        <section>
+            <h2>
+                <a href="https://www.cancelledornot.net" target="_blank">
+                    cancelledornot.net
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.6396 7.02527H12.0181V5.02527H19.0181V12.0253H17.0181V8.47528L12.1042 13.3892L10.6899 11.975L15.6396 7.02527Z" fill="black"></path><path d="M10.9819 6.97473H4.98193V18.9747H16.9819V12.9747H14.9819V16.9747H6.98193V8.97473H10.9819V6.97473Z" fill="black"></path></svg>
+                </a>
+            </h2>
+            <div class="tags">
+                <span class="tag">Full stack web application</span>
+                <span class="tag tag-secondary">Remix</span>
+                <span class="tag tag-tertiary">Node.js</span>
+                <span class="tag tag-tertiary">SQLite</span>
+                <span class="tag tag-tertiary">fly.io</span>
+            </div>
+            <p>
+                A website where users can vote on which celebrities should be cancelled.
+            </p>
+        </section>
+        <section>
+            <h2>
+                <a href="https://www.whereugo.ing" target="_blank">
+                    whereugo.ing
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.6396 7.02527H12.0181V5.02527H19.0181V12.0253H17.0181V8.47528L12.1042 13.3892L10.6899 11.975L15.6396 7.02527Z" fill="black"></path><path d="M10.9819 6.97473H4.98193V18.9747H16.9819V12.9747H14.9819V16.9747H6.98193V8.97473H10.9819V6.97473Z" fill="black"></path></svg>
+                </a>
+            </h2>
+            <div class="tags">
+                <span class="tag">Static website</span>
+                <span class="tag tag-secondary">ReactJS</span>
+                <span class="tag tag-tertiary">Leaflet</span>
+                <span class="tag tag-tertiary">Protomaps</span>
+                <span class="tag tag-tertiary">Cloudflare Pages</span>
+            </div>
+            <p>
+                A simple map for travellers which visualizes data from wikivoyage.org to help find new places to visit. Uses Leaflet and Protomaps to display the interactive map in browser.
+            </p>
+            <div class="screenshot">
+                <img src="portfolio/whereugoing.png" alt="">
+                <br>
+                <a href="https://github.com/wginsberg/wikivoyage-map" target="_blank" rel="noopener noreferrer">Github repo</a>
+            </div>
+        </section>
+        <section>
+            <h2>
+                Guitar Tab Archiver
+            </h2>
+            <div class="tags">
+                <span class="tag">Browser extension</span>
+                <span class="tag tag-tertiary">plasmo</span>
+                <span class="tag tag-tertiary">IndexedDB</span>
+            </div>
+            <p>A browser extension that scrapes guitar tabs while you browse ultimate-guitar.com and persists them locally with IndexedDB.</p>
+            <p>
+                Available for
+                <a href="https://chromewebstore.google.com/detail/guitar-tab-archiver/elkcgjfobbkiffjadbifemclachelngh?pli=1" target="_blank" rel="noopener noreferrer">
+                    Chrome
+                </a>
+                and
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/guitar-tab-archiver/" target="_blank" rel="noopener noreferrer">
+                    Firefox
+                </a>
+                .
+            </p>
+        </section>
+        <section>
+            <h2>
+                <a href="https://haikudle.pages.dev/" target="_blank">
+                    Haikudle
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.6396 7.02527H12.0181V5.02527H19.0181V12.0253H17.0181V8.47528L12.1042 13.3892L10.6899 11.975L15.6396 7.02527Z" fill="black"></path><path d="M10.9819 6.97473H4.98193V18.9747H16.9819V12.9747H14.9819V16.9747H6.98193V8.97473H10.9819V6.97473Z" fill="black"></path></svg>
+                </a>
+            </h2>
+            <div class="tags">
+                <span class="tag">Static website</span>
+                <span class="tag tag-secondary">ReactJS</span>
+                <span class="tag tag-tertiary">Github Actions</span>
+            </div>
+            <p>A daily word puzzle game inspired by Wordle. Updated daily using Github Actions.</p>
+            <div class="screenshot">
+                <img src="portfolio/haikudle.png" alt="">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <a class="attribution" href="http://www.freepik.com">Background image designed by D3Images / Freepik</a>
+    </footer>
+   </body>
+</html>
