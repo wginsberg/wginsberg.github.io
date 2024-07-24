@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                margin: 0;
+            }
+            nav, main {
+                padding: 16px;
+                max-width: 480px;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="/">Back home</a>
+        </nav>
+        <main>
+            <h1>I think metrics don't belong on resumes</h1>
+            <p>I have seen the same resume advice repeated many times which encourages "quantifying" one's impact with numbers. Something like:</p>
+            <blockquote>Improved data processing speed by 20%, enhancing application performance and user experience.</blockquote>
+            <p>This advice bothers me for a bunch of reasons that I want to list here:</p>
+            <h2>Reasons why metrics don't belong on resumes</h2>
+            <ol>
+                <li>
+                    <h3>They are not not verifiable</h3>
+                    <p>Sure, people might lie about anything on their resume. But if you want to put in the effort you can likely verify their entire employment history and diplomas. What about metrics? Who is going to remember if Steve improved data processing speed by 20%? Was it really just 5%? Is there any record of that? There's a good chance the answer is no.</p>
+                </li>
+                <li>
+                    <h3>They are not comparable</h3>
+                    <p>Numbers are great. They are especially great when we can use them to compare things in the world. What kind of comparison can we make between Alice, who improved test coverage by 200%, and Bob, who improved page load times by 20%? A non-sensical comparison.</p>
+                </li>
+                <li>
+                    <h3>They don't account for tradeoffs</h3>
+                    <p>I decreased API response times from 2.87 seconds to 1.29 seconds (but I also doubled the rates of 500 errors). Next!</p>
+                </li>
+                <li>
+                    <h3>They don't account for code quality</h3>
+                    <p>I love <a href="https://martinfowler.com/articles/is-quality-worth-cost.html" target="_blank">this article from Martin Fowler about code quality</a>. My takeaway from it is that there is a false tradeoff between getting the work done and maintaining high code quality. So what if you improved data processing speed by 20%? Did you make the code more difficult to read? To maintain? Of course we have no idea what happened next. Maybe it took your succesor a huge amount of unnecessary effort to further reducr data processing speed.</p>
+                </li>
+                <li>
+                    <h3>They don't account for teamwork</h3>
+                    <p>How can we divide the credit among members of a team when there is a big win - like when the project is delivered on time with a user satification rate of 82%? Again, maybe it doesn't even make sense to try to use mathematical concepts to analyze teamwork. Or maybe your contribution was negative 🫢 <a href="#1"><sup>1</sup></a></p>
+                </li>
+                <li>
+                    <h3>It is easy to lie with statistics (even by accident)</h3>
+                    <p>Didn't someone <a href="https://en.wikipedia.org/wiki/How_to_Lie_with_Statistics">write a book about this?</a>. Unless you are hiring a statistican, I think the mere idea that the candidate accidentally lied with is totally forgivable. But then what is the point of these numbers? An example: "rewrote a monolithic application with a microservice architecture resulting in 50% faster query response time". Did the change of architecture actually have anything to do with the decreased response time? Sounds like a lot of things could have contributed to that change!</p>
+                </li>
+            </ol>
+            <h2>Conclusion: Was this rant actually an advertisement?</h2>
+            <p>
+                If we are going to pretend to care about quantifiable achievements, maybe we should favor some kind of controlled experiment where candidates can be compared in an objective way?
+                I didn't set out trying to write an advertisement for Karat but I truly think it is the logical answer to the problems with resumes.
+                I think it actually delivers on the promise of hiring in tech: that it is a true meritocracy. It's not about who you know, or which school you went to.
+                Anyone can prove their worth based on their demonstrated abilities, not their ability to <em>talk about their abilities</em>.
+            </p>
+            <hr>
+            <footer>
+                <ol>
+                    <li id="1">Not throwing any shade here, that has been me before.</li>
+                </ol>
+            </footer>
+        </main>
+    </body>
+</html>
