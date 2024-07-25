@@ -13,9 +13,6 @@
             max-width: 720px;
             margin: auto;
             padding: 16px;
-
-            background-image: url("portfolio/memphis/OMEGGK0.jpg");
-            background-size: contain;
         }
         h1 {
             margin: 0;
@@ -175,5 +172,18 @@
     <footer>
         <a class="attribution" href="http://www.freepik.com">Background image designed by D3Images / Freepik</a>
     </footer>
+    <img
+        id="bg"
+        src="portfolio/memphis/OMEGGK0.jpg"
+        style="width: 100vw; position: fixed; left: 0; top: 0; z-index: -1; transition: opacity 3s linear; opacity: 0;"
+    >
+    <script>
+        const img = document.getElementById("bg")
+        if (img.complete) onBgLoaded()
+        img.addEventListener('load', onBgLoaded)
+        function onBgLoaded() {
+            img.style.opacity = 0.85;
+        }
+    </script>
    </body>
 </html>
