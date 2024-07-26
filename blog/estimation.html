@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                margin: 0;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            nav, main {
+                padding: 16px;
+                max-width: 480px;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="/">Back home</a>
+        </nav>
+        <main>
+            <h1>Estimating feature work for web developers</h1>
+            <p>
+                Estimating project timelines in software is an interesting topic to me.
+                As programmers we are used to thinking in concrete, logical terms, yet when asked for the most innocent of time estimates we are thrust into a world of ambiguity and uncertainty.
+                And nobody prepares you for it.
+                It can be overwhelming, and it may actually get worse over the years.
+            </p>
+            <blockquote>
+                "Hey Will"
+                <br>
+                "How long will it take to add feature X?"
+            </blockquote>
+            <p>
+                We are bound at some point to experience the trauma of massively underestimating a large project.
+                When it goes wrong we likely are going to lose some time, money, contentment, confidence in ourselves, our credibility.
+            </p>
+            
+            <p>
+                Rather than trying to reinvent the estimate or avoid doing them altogether (though nice ideas) I want to share some practical ideas on estimating feature work in a web development context.
+            </p>
+            <p>
+                First some ideas about breaking down tasks, and later some common things that I have run into many times when developing features as a web developer.
+            </p>
+
+            <h2>1: Estimating small chunks of work</h2>
+
+            <p>
+                There are quite a few benefits of breaking down estimates into smaller parts.
+            </p>
+            <p>
+                Firstly, writing down our thoughts helps us to inspect them and spot the things that we missed.
+                For our estimates <strong>this can mean quickly spotting literal days worth of extra work</strong>. It is far too easy to blurt out "Feature X will be about a two days worth of effort" before realising you failed to consider all its tricky edge cases.
+            </p>
+            <p>
+                Second, it enables us to put a lower bound on the amount of work we are estimating.
+                If I can name twelve steps involved in completing the feature then I'll known it is for sure more than twelve hours of work.
+                I will be able to estimate each of the sub-tasks more accurately if they are small enough. Personally I keep them in the range of 2-6 hours each.
+                If they are much larger they can probably be broken down even more. If I can name them clearly as tasks they probably will take at least a half hour.
+            </p>
+            <p>
+                Thirdly, presenting this breakdown to the person who asked for the estimate can help you both forge the best path forward.
+                If they don't like your estimate at this point, you are in a much better to negotiate for yourself when you are armed with a detailed breakdown.
+                Maybe the scope of the feature can be reduced to deliver necessary value to their users without spending their limited budget on development.
+                On the other hand if this work is really critical maybe budget can be allocated from elsewhere to support it.
+            </p>
+
+            <p>
+                I like to group tasks under headings like "Frontend", "Backend", "Database" to again guard against forgetting anything.
+                Occaisonally there will be a "Configuration" heading to account for updating any external systems like a CMS, analytics dashboard, or the like.
+            </p>
+
+            <h3>Example breakdown</h3>
+            <p>Suppose the client wants to add a new feature to delete bingbongs from the bingbong detail modal. Here is what I might write out:</p>
+            <pre style="white-space: pre-line; background-color: lightgrey;">
+    <strong>Feature: Deleting Bingbongs</strong>
+
+    <strong>Database:</strong>
+        * Add migration for Bingbong table with "deleted" and "deleted_at" columns
+
+    <strong>Backend:</strong>
+    * Add DELETE /bingbong/:id route
+
+    <strong>Frontend:</strong>
+    * Add trash icon button to modal
+    * Connect button with new backend route
+    * Show loading spinner when delete is pending
+    * Automatically close bingbong modal on successful delete
+    * Automatically update bingbong list view to remove deleted bingbong when it is deleted
+
+    ESTIMATE BREAKDOWN
+    Backend - 3 hours
+    Frontend - 4 hours
+        = 7 hours
+            </pre>
+
+            <h2>2: Common gotchas in feature work</h2>
+
+            <p>
+                Below are some tasks that I find are commonly hidden in simple feature requests.
+                Being able to spot these early will help you to make your estimates more accurate and minimize surprises when the work is delivered.
+            </p>
+            
+            <h3>Loading states</h3>
+            <p>
+                Is any extra effort going to need to be dedicated to showing loading states in the application?
+                This may include things like:
+                <ul>
+                    <li>
+                        Showing a loading spinner when the user submits a form
+                    </li>
+                    <li>
+                        Shimmer effects on page load
+                    </li>
+                    <li>
+                        Optimistic UI
+                    </li>
+                </ul>
+            </p>
+
+            <h3>Error states</h3>
+            <p>
+                Is any extra effort needed to validate, display, and test errors in the application? Here are just a few considerations:
+                <ul>
+                    <li>
+                        Showing clientside form validation errors
+                    </li>
+                    <li>
+                        Showing serverside form validation errors
+                    </li>
+                    <li>
+                        Handling internal server errors with a toast message
+                    </li>
+                    <li>
+                        Testing error states that depend on a 3rd party service returning different errors (can you easily trigger them for testing?)
+                    </li>
+                </ul>
+            </p>
+
+            <h3>Scalability (even a tiny bit)</h3>
+            <p>
+                Luckily most of us don't have to worry about scaling our service to handle millions of concurrent users (if we did we would be lucky for another reason!).
+                However there is a class of scaling problems that we can run into with even a few dozen users:
+                <ul>
+                    <li>
+                        Does the layout break when there are a few dozen / hundred items to display in a list?
+                    </li>
+                    <li>
+                        Do we need to implement pagination to handle the above case?
+                        What about a basic search feature to handle the above case? This can balloon in effort pretty quickly.
+                    </li>
+                    <li>
+                        For single page applications: does showing the few dozen / hundred items trigger one or more network requests for each one?
+                        This can dimish the user experience pretty quickly if not handled carefully.
+                    </li>
+                    <li>
+                        On the other extreme: does the layout break when there are zero items to display in a list?
+                    </li>
+                </ul>
+            </p>
+
+            <h3>Thinking forward in time</h3>
+            <p>Some features get more complicated when we look forward in time:</p>
+            <ul>
+                <li>What happens when data becomes outdated? E.g. a calendar of "upcoming" events will eventually be a calendar of past events ... what does that mean for us?</li>
+                <li>Is it possible for users to make edits to resources? Can a user undo an edit?</li>
+                <li>Is it possible for users to delete resources? Can a user undo a delete? What about archiving vs deleting?</li>
+                <li>Can a 3rd party cause a resource to become stale? E.g. if we provide an account integration with an external website will we need to periodically check it for updates on that account?</li>
+            </ul>
+
+            <h3>Addressing bad actors on our platform</h3>
+            <p>If our website allows users to upload text or media and share it with other users we should be concerned about both:</p>
+            <ul>
+                <li>Having a way to moderate / take down / hide user content manually ourselves</li>
+                <li>Allowing a user to block another user that they don't wish to see</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+                In the spirit of keeping this article concise and digestable I'm going to cut myself off here.
+                Though, there is a lot more I want to write about estimates so there is a followup warranted.
+                Hopefully this article gives some food for thought on approaching your own estimates.
+                I encourage everyone to think, and perhaps way more importantly, <em>write</em>, about how you have estimated in the past and what you can do to estimate even better next time.
+            </p>
+
+<!--             
+            6. Layouts
+            Mobile, responsive, large screen accommodating
+            Empty states and “show more” states
+            Does adding a new feature break the existing layout somehow? E.g. adding a nav link for a new page makes the nav too large to render properly
+            Footer placement - does the site layout already work well when less than 100vh? More than 100vh? Related to empty states
+            
+            7. At the finish line…
+            Domain name set up and pointing to your server?
+            Your server responding to requests with production build of your application?
+            You have a repeatable (ideally fully automated) method of deploying our changes (to a staging environment?)
+            No CORS errors in production?
+            HTTPS working in production?
+            
+            8. Emails
+            “It should send an email to the user” - does the template exist?
+            If this is the first time sending emails - does that integration exist? Need to verify your address/domain for it to work? -->
+
+        </main>
+    </body>
+</html>
