@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Software Estimation | Will Ginsberg</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
@@ -23,25 +24,24 @@
             <h1>Estimating feature work for web developers</h1>
             <p>
                 Estimating project timelines in software is an interesting topic to me.
-                As programmers we are used to thinking in concrete, logical terms, yet when asked for the most innocent of time estimates we are thrust into a world of ambiguity and uncertainty.
-                And nobody prepares you for it.
-                It can be overwhelming, and it may actually get worse over the years.
+                As programmers we are used to thinking in concrete, logical terms, yet this can go out the window as soon as we are asked for an innocent time estimate.
+                We are now entering into an ambiguous and uncertain world that nobody prepared us for.
+                It's overwhelming, and it can actually get worse over the years instead of better.
             </p>
             <blockquote>
-                "Hey Will"
-                <br>
-                "How long will it take to add feature X?"
+                "Hey Will how long would it take to add feature X?"
             </blockquote>
             <p>
                 We are bound at some point to experience the trauma of massively underestimating a large project.
-                When it goes wrong we likely are going to lose some time, money, contentment, confidence in ourselves, our credibility.
+                When it goes wrong we likely are going to lose some sanity. Maybe our own time an money. Maybe our credibility.
+                We can even start to question if we are cut out for this work after all.
             </p>
             
             <p>
-                Rather than trying to reinvent the estimate or avoid doing them altogether (though nice ideas) I want to share some practical ideas on estimating feature work in a web development context.
+                Rather than trying to reinvent the estimate or avoid doing them altogether (though nice ideas) I want to share some practical tips on making more accurate estimates for feature work in a web development context.
             </p>
             <p>
-                First some ideas about breaking down tasks, and later some common things that I have run into many times when developing features as a web developer.
+                First I'll share some ideas about breaking features down into tasks, and second a list of some common estimation gotchas I have run into working as a web developer.
             </p>
 
             <h2>1: Estimating small chunks of work</h2>
@@ -50,20 +50,20 @@
                 There are quite a few benefits of breaking down estimates into smaller parts.
             </p>
             <p>
-                Firstly, writing down our thoughts helps us to inspect them and spot the things that we missed.
+                Firstly, writing down our thoughts helps us to spot the things that we missed.
                 For our estimates <strong>this can mean quickly spotting literal days worth of extra work</strong>. It is far too easy to blurt out "Feature X will be about a two days worth of effort" before realising you failed to consider all its tricky edge cases.
             </p>
             <p>
                 Second, it enables us to put a lower bound on the amount of work we are estimating.
-                If I can name twelve steps involved in completing the feature then I'll known it is for sure more than twelve hours of work.
-                I will be able to estimate each of the sub-tasks more accurately if they are small enough. Personally I keep them in the range of 2-6 hours each.
-                If they are much larger they can probably be broken down even more. If I can name them clearly as tasks they probably will take at least a half hour.
+                Suppose I can enumerate N subtasks for the feature I'm estimating.
+                Right away I'll have a quick sanity check that this is least N hours of work.
+                Personally I keep subtasks of 2-6 hours each. I believe the exact range here is something personal and only really comes with experience.
+                If they are much larger than 6 hours I can probably be break them down even more, getting a bettern estimate.
             </p>
             <p>
-                Thirdly, presenting this breakdown to the person who asked for the estimate can help you both forge the best path forward.
-                If they don't like your estimate at this point, you are in a much better to negotiate for yourself when you are armed with a detailed breakdown.
-                Maybe the scope of the feature can be reduced to deliver necessary value to their users without spending their limited budget on development.
-                On the other hand if this work is really critical maybe budget can be allocated from elsewhere to support it.
+                Thirdly, presenting this breakdown to the person who asked for the estimate can be beneficial for the both of you.
+                They might now decide that the scope of the feature should be reduced, or budget from elsewhere should be allocated to support it.
+                Either way, you are now in a better position to ask for more time or money, and they are in a position to be happy about recieving your work.
             </p>
 
             <p>
@@ -124,16 +124,13 @@
                 Is any extra effort needed to validate, display, and test errors in the application? Here are just a few considerations:
                 <ul>
                     <li>
-                        Showing clientside form validation errors
+                        Showing form validation errors from both clientside and serverside logic
                     </li>
                     <li>
-                        Showing serverside form validation errors
+                        Handling internal server errors with a toast message or a redirect
                     </li>
                     <li>
-                        Handling internal server errors with a toast message
-                    </li>
-                    <li>
-                        Testing error states that depend on a 3rd party service returning different errors (can you easily trigger them for testing?)
+                        Testing error states that depend on a 3rd party service. Can you easily trigger them for testing?
                     </li>
                 </ul>
             </p>
@@ -147,8 +144,8 @@
                         Does the layout break when there are a few dozen / hundred items to display in a list?
                     </li>
                     <li>
-                        Do we need to implement pagination to handle the above case?
-                        What about a basic search feature to handle the above case? This can balloon in effort pretty quickly.
+                        Do we need to implement pagination to handle?
+                        What about a basic search feature to handle? This can balloon in effort pretty quickly.
                     </li>
                     <li>
                         For single page applications: does showing the few dozen / hundred items trigger one or more network requests for each one?
@@ -163,14 +160,14 @@
             <h3>Thinking forward in time</h3>
             <p>Some features get more complicated when we look forward in time:</p>
             <ul>
-                <li>What happens when data becomes outdated? E.g. a calendar of "upcoming" events will eventually be a calendar of past events ... what does that mean for us?</li>
+                <li>Can a resource become stale while a user is viewing it? E.g. around midnight a list of today's "upcoming" events might become a list of "past" events</li>
+                <li>Can a 3rd party cause a resource to become stale? E.g. a user's account integration with an external website may become invalid without us knowning. Will they be stuck with an invalid account integration?</li>
                 <li>Is it possible for users to make edits to resources? Can a user undo an edit?</li>
-                <li>Is it possible for users to delete resources? Can a user undo a delete? What about archiving vs deleting?</li>
-                <li>Can a 3rd party cause a resource to become stale? E.g. if we provide an account integration with an external website will we need to periodically check it for updates on that account?</li>
+                <li>Is it possible for users to delete resources? Can a user undo a delete?</li>
             </ul>
 
             <h3>Addressing bad actors on our platform</h3>
-            <p>If our website allows users to upload text or media and share it with other users we should be concerned about both:</p>
+            <p>If our website allows users to upload text or media and share it with other users we need to account for:</p>
             <ul>
                 <li>Having a way to moderate / take down / hide user content manually ourselves</li>
                 <li>Allowing a user to block another user that they don't wish to see</li>
