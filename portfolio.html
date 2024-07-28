@@ -70,23 +70,66 @@
             background-color: white;
             font-size: small;
         }
+        #about {
+            background-color: lightgray;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        #about p {
+            margin-bottom: 0;
+        }
+        details[open] #summary1 {
+            display: none;
+        }
+        #summary2 {
+            display: none;
+        }
+        details[open] #summary2 {
+            display: initial;
+        }
     </style>
   </head>
   <body>
     <main>
+        <section>
+            <em>Recent blog post:
+                <br>
+                <a href="blog/estimation.html">
+                    Some thoughts on project estimation
+                </a>
+            </em>
+        </section>
         <div class="section">
             <h1>
                 Will Ginsberg
-                <span style="color: grey; white-space: nowrap;">| My projects</span>
+                <span style="color: grey; white-space: nowrap;">| freelance web developer</span>
             </h1>
             <ul style="list-style-type: circle">
                 <li>will.j.ginsberg@gmail.com</li>
                 <li><a href="https://github.com/wginsberg" target="_blank" rel="noopener noreferrer">github.com/wginsberg</a></li>
                 <li><a href="https://www.linkedin.com/in/will-ginsberg-31403bb9/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
-            <nav>
-                <a href="/">Back home</a>
-            </nav>
+
+            <details id="about">
+                <summary>
+                    <span id="summary1">
+                        <span>
+                            I am a 5+ year experienced full stack developer...
+                        </span>
+                        <em>Read more</em>
+                    </span>
+                    <span id="summary2">
+                        <em>Read less</em>
+                        <p>
+                            I am a 5+ year experienced full stack developer focusing on ReactJS, Node, and Remix.
+                            Over the years I have built countless user interfaces, written backend services, designed database schemas, and deployed them all to production.
+                            I have helped various companies grow their engineering departments by interviewing candidates for technical roles through the Karat platform (350+ interviews and counting).
+                            I have also spent hundreds of hours mentoring new web developers as a mentor with the coding bootcamp Lighthouse Labs.
+                        </p>
+                    </span>
+                </summary>
+            </details>
+
         </div>
         <section>
             <h2>
