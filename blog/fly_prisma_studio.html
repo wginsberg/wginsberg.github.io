@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prisma Studio on fly.io | Will Ginsberg</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                margin: 0;
+                font-family: system-ui;
+            }
+            nav, main {
+                max-width: 480px;
+                margin: auto;
+                padding-top: 16px;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            h1 {
+                margin-top: 0;
+            }
+            time {
+                color: #5b616b;
+            }
+            pre {
+                display: block;
+                background: darkslategrey;
+                color: white;
+                padding: 12px 12px 0 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="/">Back home</a>
+        </nav>
+        <main>
+            <h1>Opening Prisma Studio on fly.io</h1>
+            <time>Aug 13, 2024</time>
+            <p>
+                I really enjoy developing application with a Sqlite database on <a href="https://fly.io/docs/litefs/" target="_blank" rel="noopener noreferer">fly.io</a>.
+                I also happen to use Prisma and make regular use of <a href="https://www.prisma.io/studio" target="_blank" rel="noopener noreferer">Prisma Studio</a> to help debug when I'm running applications locally.
+                Recently I wanted to open up Prisma Studio on my production deployment and had some confusion about how it could work. Luckily it's not too hard!
+            </p>
+            <p>
+                <div style="display: flex; justify-content: center;">
+                    <img src="/blog//fly_prisma_studio.svg" width="279px" height="511px" alt="" />
+                </div>
+            </p>
+            <p>
+                We'll need two terminal windows open for this.
+            </p>
+            <p>
+                In the first window we connect to fly over ssh and run Prisma Studio there:
+                <pre>
+> fly ssh console -a YOUR_APPLICATION_NAME
+Connecting to fdaa:8:3d9d:a7b:1d3:b6gf:289d:2... complete
+
+root@85de01ea760728:/myapp# npx prisma studio
+Prisma schema loaded from prisma/schema.prisma
+Prisma Studio is up on http://localhost:5555
+                </pre>
+            </p>
+            <p>
+                Taking note of the port number we'll now proxy traffic to fly:
+
+            <pre>
+> fly proxy 5555:5555 -a YOUR_APPLICATION_NAME
+                </pre> 
+                
+            Now you can visit Prisma Studio in your browser as normal at <code>http://localhost:5555</code>
+            </p> 
+        </main>
+    </body>
+</html>

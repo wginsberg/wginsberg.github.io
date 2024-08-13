@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.7">
+  <diagram name="Page-1" id="Nz12WgYjtLwBdfN-h9UA">
+    <mxGraphModel dx="866" dy="583" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vQRhyL0Byvt2GFxTHfLi-1" value="fly.io" style="whiteSpace=wrap;html=1;aspect=fixed;rounded=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="230" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="vQRhyL0Byvt2GFxTHfLi-2" value="Your computer&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;verticalAlign=top;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="120" width="240" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="vQRhyL0Byvt2GFxTHfLi-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="vQRhyL0Byvt2GFxTHfLi-4" target="vQRhyL0Byvt2GFxTHfLi-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vQRhyL0Byvt2GFxTHfLi-4" value="fly proxy 5555:5555" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="505" y="290" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="vQRhyL0Byvt2GFxTHfLi-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="vQRhyL0Byvt2GFxTHfLi-6" target="vQRhyL0Byvt2GFxTHfLi-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vQRhyL0Byvt2GFxTHfLi-6" value="npx prisma studio" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="vQRhyL0Byvt2GFxTHfLi-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="vQRhyL0Byvt2GFxTHfLi-8" target="vQRhyL0Byvt2GFxTHfLi-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vQRhyL0Byvt2GFxTHfLi-8" value="Prisma Studio&lt;br&gt;&lt;br&gt;http://localhost:5555" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="490" y="160" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="vQRhyL0Byvt2GFxTHfLi-10" value="Sqlite&lt;div&gt;Database&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="140" y="110" width="60" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
