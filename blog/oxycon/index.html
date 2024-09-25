@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui;
+      }
+      nav,
+      main {
+        max-width: 480px;
+        margin: auto;
+        padding-top: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      time {
+        color: #5b616b;
+      }
+      pre {
+        display: block;
+        background: darkslategrey;
+        color: white;
+        padding: 12px 12px 0 12px;
+      }
+    </style>
+    <title>Notes from a web scraping conference | Will Ginsberg</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Back home</a>
+    </nav>
+    <main>
+      <h1>Notes from a web scraping conference</h1>
+      <time>September 25, 2024</time>
+      <p>
+        I caught the second half of the 2024 Oxylabs Oxycon web scraping
+        conference today and have a few take-aways that are still fresh in my
+        mind:
+      </p>
+      <h2>
+        Web scraping customers are interested in e-commerce, and grocery
+        specifically
+      </h2>
+      <p>
+        Perhaps this one deserves a "duh". The specific websites which were
+        referenced included Kroger, Tesco, and Walmart, as far as I can
+        remember. I didn't hear any references to scraping social media
+        websites. Maybe I tuned in too late, maybe they don't want to talk about
+        it, or maybe there's no money in it :shrug-emoji.
+      </p>
+
+      <h2>A big part of web scraping at scale is not getting blocked</h2>
+      <p>
+        Again, maybe "duh". The problem of getting blocked by websites was
+        discussed in detail at several points in the conference. This includes
+        CAPTCHA solving and broswer fingerprinting. I have more thoughts on this
+        that I will hopefully share in an upcoming blog post.
+      </p>
+      <h2>AI is being used, but maybe not as much as you think</h2>
+      <p>
+        There was a live demo of Oxylab's platform in which the presenter first
+        showed how their existing product can create a robust distributed web
+        scraper from a simple JSON configuration. The presenter then showed
+        that, using an LLM behind the scenes, they could replace that process
+        with a high level prompt like "scrape the product name and price from
+        the following web page using a client in United States." The demo was
+        compelling, and it confirmed something that I've been thinking about
+        lately: AI should enhance a working interface, not replace it.
+      </p>
+      <h2>QA on scraped data</h2>
+      <p>
+        I was able to ask a question about verifiying the results of a web
+        scraper and I got two different answers that I think were interesting.
+        The first was that you can take a random sampling of your scraping
+        results and verify them. The second was that you can verify every single
+        result and compare each field to historical statistics (e.g.
+        historically product descriptions are missing 25% of the time.)
+      </p>
+      <h2>
+        Efforts to block web scrapers may hurt the experience of your human
+        users
+      </h2>
+      <figure>
+        <img
+          src="/blog/oxycon/kroger.png"
+          width="1048"
+          height="466"
+          alt="Blocked by kroger.com"
+          style="max-width: 100%; height: auto; border: 2px solid grey"
+        />
+        <figcaption>
+          <em>Encountered while writing this blog post.</em>
+        </figcaption>
+      </figure>
+      <p>
+        This was noted by a few speakers in a panel. Users do not enjoy filling
+        out CAPTCHAs or being locked out of a website, so it is possible to go
+        too far when trying to fend of web scrapers and actually harm your
+        business.
+      </p>
+      <h2>Web scrapers and analytics</h2>
+      <p>
+        One speaker noted in particular that a large number of requests from web
+        scrapers can hurt the accuracy of analytics on a website. This is a
+        problem because, for example, retailers care a lot about knowing with
+        great accuracy which visitors converted into paying customers. The
+        speaker suggested that these retailers would actually be better served
+        to not go to great lengths to block web scrapers (see above point for
+        why), but rather analyze their logs to filter out potential scrapers by
+        tracking sessions after the fact.
+      </p>
+      <h2>Future blocking techniques</h2>
+      <p>
+        One potential blocking technique that may be coming in the future will
+        take advantage of IndexedDB. Modern browsers allow web authors to write
+        and query a powerful database within the user's browser. Checking the
+        contents of this database is a potential way to detect anomalous
+        behaviour from scraping agents who may, for example, constantly make
+        requests with a suspiciously empty local database.
+      </p>
+      <h2>Conclusion</h2>
+      <p>
+        Web scraping can be complicated these days! I think there is still a lot
+        of potential for innovation and I myself have a lot more to learn about
+        this space. I'm looking forward to doing more tinkering, especially when
+        it comes to scraping websites using browser extensions.
+      </p>
+    </main>
+  </body>
+</html>
