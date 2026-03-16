@@ -9,7 +9,7 @@
 
   <body>
     <div class="bg"></div>
-     
+
     <main>
       <div class="section">
         <h1>
@@ -68,248 +68,225 @@
         </ul>
       </div>
 
-      <div class="tabs">
-        <fieldset class="tab-controls">
-          <legend class="visually-hidden">Content sections</legend>
+      <nav>
+        <a href="/" class="section link-active">Home</a>
+        <a href="/notes" class="section">Notes</a>
+        <a href="/about" class="section">About</a>
+      </nav>
 
-          <input type="radio" name="tabs" id="tab-projects" checked />
-          <label for="tab-projects">Projects</label>
-
-          <input type="radio" name="tabs" id="tab-notes" />
-          <label for="tab-notes">Notes</label>
-        </fieldset>
-
-        <div class="tab-panels">
-          <div class="tab-panel notes">
-            <section>
-              <h2>Code quality is context engineering</h2>
-              <p>Blah Blah Blah</p>
-            </section>
-
-            <section>
-              <h2>Microservices are a very bad idea*</h2>
-              <p>* Some exceptions exist</p>
-            </section>
-          </div>
-
-          <div class="tab-panel projects">
-            <section>
-              <h2>AI Language Helper Extension</h2>
-              <div class="tags">
-                <span class="tag">Browser extension</span>
-                <span class="tag tag-secondary">React</span>
-                <span class="tag tag-tertiary">wxt</span>
-                <span class="tag tag-tertiary">Typescript</span>
-              </div>
-              <p>
-                A browser extension that provides accurate translations in
-                context.
-              </p>
-              <div class="screenshot">
-                <img
-                  width="320"
-                  height="220"
-                  src="portfolio/language_helper.png"
-                  style="margin: auto; border-radius: 8px"
-                  alt=""
-                  fetchpriority="high"
-                />
-                <p>
-                  Submitted to the
-                  <a
-                    href="https://devpost.com/software/ai-language-helper"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Chrome built in AI hackathon
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="https://github.com/wginsberg/language-helper-extension"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Github repo
-                  </a>
-                </p>
-              </div>
-            </section>
-
-            <section>
-              <h2>Github Actions Browser Extension</h2>
-              <div class="tags">
-                <span class="tag">Browser extension</span>
-                <span class="tag tag-secondary">React</span>
-                <span class="tag tag-tertiary">wxt</span>
-                <span class="tag tag-tertiary">Typescript</span>
-              </div>
-              <p>
-                A browser extension that shows workflow runs from all of your
-                Github repos in one place.
-              </p>
-              <div class="screenshot">
-                <img
-                  width="320"
-                  height="283"
-                  src="portfolio/github_extension.gif"
-                  style="margin: auto; border-radius: 8px"
-                  alt=""
-                />
-                <p>
-                  Available for
-                  <a
-                    href="https://chromewebstore.google.com/detail/view-github-actions/eoopeanllilpkhhjjahpllpgimopekmg?authuser=0&hl=en"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Chrome
-                  </a>
-                </p>
-              </div>
-            </section>
-            <section>
-              <h2 style="flex-wrap: wrap; justify-content: space-between">
-                <span style="white-space: nowrap">live-in-studio.video</span>
-                <i style="color: grey">Archived</i>
-              </h2>
-              <div class="tags">
-                <span class="tag">Full stack web application</span>
-                <span class="tag tag-secondary">Remix</span>
-                <span class="tag tag-tertiary">Node.js</span>
-                <span class="tag tag-tertiary">SQLite</span>
-                <span class="tag tag-tertiary">fly.io</span>
-              </div>
-              <p>
-                A website just for browsing youtube videos like Tiny Desk
-                Concerts, KEXP live sessions, Audiotree, and others.
-              </p>
-              <div class="screenshot">
-                <img
-                  src="portfolio/live-in-studio.gif"
-                  alt=""
-                  width="275"
-                  height="480"
-                />
-              </div>
-            </section>
-            <section>
-              <h2>
-                <a href="https://whereugoing.pages.dev" target="_blank">
-                  whereugo.ing
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.6396 7.02527H12.0181V5.02527H19.0181V12.0253H17.0181V8.47528L12.1042 13.3892L10.6899 11.975L15.6396 7.02527Z"
-                      fill="black"
-                    ></path>
-                    <path
-                      d="M10.9819 6.97473H4.98193V18.9747H16.9819V12.9747H14.9819V16.9747H6.98193V8.97473H10.9819V6.97473Z"
-                      fill="black"
-                    ></path>
-                  </svg>
-                </a>
-              </h2>
-              <div class="tags">
-                <span class="tag">Static website</span>
-                <span class="tag tag-secondary">ReactJS</span>
-                <span class="tag tag-tertiary">Leaflet</span>
-                <span class="tag tag-tertiary">Protomaps</span>
-                <span class="tag tag-tertiary">Cloudflare Pages</span>
-              </div>
-              <p>
-                A simple map for travellers which visualizes data from
-                wikivoyage.org to help find new places to visit. Uses Leaflet
-                and Protomaps to display the interactive map in browser.
-              </p>
-              <div class="screenshot">
-                <img src="portfolio/whereugoing.png" alt=""  height="480"/>
-                <p>
-                  <a
-                    href="https://github.com/wginsberg/wikivoyage-map"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Github repo</a
-                  >
-                </p>
-              </div>
-            </section>
-            <section>
-              <h2>Guitar Tab Archiver</h2>
-              <div class="tags">
-                <span class="tag">Browser extension</span>
-                <span class="tag tag-tertiary">plasmo</span>
-                <span class="tag tag-tertiary">IndexedDB</span>
-              </div>
-              <p>
-                A browser extension that scrapes guitar tabs while you browse
-                ultimate-guitar.com and persists them locally with IndexedDB.
-              </p>
-              <div class="screenshot">
-                <img width="300" height="176" src="portfolio/gta.gif" alt="" />
-                <p>
-                  Available for
-                  <a
-                    href="https://chromewebstore.google.com/detail/guitar-tab-archiver/elkcgjfobbkiffjadbifemclachelngh?pli=1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Chrome
-                  </a>
-                  and
-                  <a
-                    href="https://addons.mozilla.org/en-US/firefox/addon/guitar-tab-archiver/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Firefox
-                  </a>
-                </p>
-              </div>
-            </section>
-            <section>
-              <h2>
-                <a href="https://haikudle.pages.dev/" target="_blank">
-                  Haikudle
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.6396 7.02527H12.0181V5.02527H19.0181V12.0253H17.0181V8.47528L12.1042 13.3892L10.6899 11.975L15.6396 7.02527Z"
-                      fill="black"
-                    ></path>
-                    <path
-                      d="M10.9819 6.97473H4.98193V18.9747H16.9819V12.9747H14.9819V16.9747H6.98193V8.97473H10.9819V6.97473Z"
-                      fill="black"
-                    ></path>
-                  </svg>
-                </a>
-              </h2>
-              <div class="tags">
-                <span class="tag">Static website</span>
-                <span class="tag tag-secondary">ReactJS</span>
-                <span class="tag tag-tertiary">Github Actions</span>
-              </div>
-              <p>
-                A daily word puzzle game inspired by Wordle. Updated daily using
-                Github Actions.
-              </p>
-              <div class="screenshot">
-                <img src="portfolio/haikudle.png" alt="" height="480"/>
-              </div>
-            </section>
-          </div>
+      <section>
+        <h2>AI Language Helper Extension</h2>
+        <div class="tags">
+          <span class="tag">Browser extension</span>
+          <span class="tag tag-secondary">React</span>
+          <span class="tag tag-tertiary">wxt</span>
+          <span class="tag tag-tertiary">Typescript</span>
         </div>
-      </div>
+        <p>
+          A browser extension that provides accurate translations in context.
+        </p>
+        <div class="screenshot">
+          <img
+            width="320"
+            height="220"
+            src="portfolio/language_helper.png"
+            style="margin: auto; border-radius: 8px"
+            alt=""
+            fetchpriority="high"
+          />
+          <p>
+            Submitted to the
+            <a
+              href="https://devpost.com/software/ai-language-helper"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chrome built in AI hackathon
+            </a>
+          </p>
+          <p>
+            <a
+              href="https://github.com/wginsberg/language-helper-extension"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github repo
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Github Actions Browser Extension</h2>
+        <div class="tags">
+          <span class="tag">Browser extension</span>
+          <span class="tag tag-secondary">React</span>
+          <span class="tag tag-tertiary">wxt</span>
+          <span class="tag tag-tertiary">Typescript</span>
+        </div>
+        <p>
+          A browser extension that shows workflow runs from all of your Github
+          repos in one place.
+        </p>
+        <div class="screenshot">
+          <img
+            width="320"
+            height="283"
+            src="portfolio/github_extension.gif"
+            style="margin: auto; border-radius: 8px"
+            alt=""
+          />
+          <p>
+            Available for
+            <a
+              href="https://chromewebstore.google.com/detail/view-github-actions/eoopeanllilpkhhjjahpllpgimopekmg?authuser=0&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chrome
+            </a>
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2 style="flex-wrap: wrap; justify-content: space-between">
+          <span style="white-space: nowrap">live-in-studio.video</span>
+          <i style="color: grey">Archived</i>
+        </h2>
+        <div class="tags">
+          <span class="tag">Full stack web application</span>
+          <span class="tag tag-secondary">Remix</span>
+          <span class="tag tag-tertiary">Node.js</span>
+          <span class="tag tag-tertiary">SQLite</span>
+          <span class="tag tag-tertiary">fly.io</span>
+        </div>
+        <p>
+          A website just for browsing youtube videos like Tiny Desk Concerts,
+          KEXP live sessions, Audiotree, and others.
+        </p>
+        <div class="screenshot">
+          <img
+            src="portfolio/live-in-studio.gif"
+            alt=""
+            width="275"
+            height="480"
+          />
+        </div>
+      </section>
+      <section>
+        <h2>
+          <a href="https://whereugoing.pages.dev" target="_blank">
+            whereugo.ing
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6396 7.02527H12.0181V5.02527H19.0181V12.0253H17.0181V8.47528L12.1042 13.3892L10.6899 11.975L15.6396 7.02527Z"
+                fill="black"
+              ></path>
+              <path
+                d="M10.9819 6.97473H4.98193V18.9747H16.9819V12.9747H14.9819V16.9747H6.98193V8.97473H10.9819V6.97473Z"
+                fill="black"
+              ></path>
+            </svg>
+          </a>
+        </h2>
+        <div class="tags">
+          <span class="tag">Static website</span>
+          <span class="tag tag-secondary">ReactJS</span>
+          <span class="tag tag-tertiary">Leaflet</span>
+          <span class="tag tag-tertiary">Protomaps</span>
+          <span class="tag tag-tertiary">Cloudflare Pages</span>
+        </div>
+        <p>
+          A simple map for travellers which visualizes data from wikivoyage.org
+          to help find new places to visit. Uses Leaflet and Protomaps to
+          display the interactive map in browser.
+        </p>
+        <div class="screenshot">
+          <img src="portfolio/whereugoing.png" alt="" height="480" />
+          <p>
+            <a
+              href="https://github.com/wginsberg/wikivoyage-map"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Github repo</a
+            >
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2>Guitar Tab Archiver</h2>
+        <div class="tags">
+          <span class="tag">Browser extension</span>
+          <span class="tag tag-tertiary">plasmo</span>
+          <span class="tag tag-tertiary">IndexedDB</span>
+        </div>
+        <p>
+          A browser extension that scrapes guitar tabs while you browse
+          ultimate-guitar.com and persists them locally with IndexedDB.
+        </p>
+        <div class="screenshot">
+          <img width="300" height="176" src="portfolio/gta.gif" alt="" />
+          <p>
+            Available for
+            <a
+              href="https://chromewebstore.google.com/detail/guitar-tab-archiver/elkcgjfobbkiffjadbifemclachelngh?pli=1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chrome
+            </a>
+            and
+            <a
+              href="https://addons.mozilla.org/en-US/firefox/addon/guitar-tab-archiver/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Firefox
+            </a>
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2>
+          <a href="https://haikudle.pages.dev/" target="_blank">
+            Haikudle
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6396 7.02527H12.0181V5.02527H19.0181V12.0253H17.0181V8.47528L12.1042 13.3892L10.6899 11.975L15.6396 7.02527Z"
+                fill="black"
+              ></path>
+              <path
+                d="M10.9819 6.97473H4.98193V18.9747H16.9819V12.9747H14.9819V16.9747H6.98193V8.97473H10.9819V6.97473Z"
+                fill="black"
+              ></path>
+            </svg>
+          </a>
+        </h2>
+        <div class="tags">
+          <span class="tag">Static website</span>
+          <span class="tag tag-secondary">ReactJS</span>
+          <span class="tag tag-tertiary">Github Actions</span>
+        </div>
+        <p>
+          A daily word puzzle game inspired by Wordle. Updated daily using
+          Github Actions.
+        </p>
+        <div class="screenshot">
+          <img src="portfolio/haikudle.png" alt="" height="480" />
+        </div>
+      </section>
     </main>
   </body>
 </html>

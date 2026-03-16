@@ -25,6 +25,7 @@ html {
     opacity: 0.15;
     z-index: -1;
     background-image: url("bg.svg");
+    view-transition-name: bg;
   }
 
   h1 {
@@ -44,94 +45,15 @@ html {
     color: black;
   }
 
-  /*
-    Tab layout
-  */
-
-  /* hide radios but keep them accessible */
-  .tabs input[type="radio"] {
-    position: absolute;
-    top: -100%;
-    left: -100%;
-  }
-
-  /* tab layout */
-
-  .tab-controls {
+  nav {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    padding: 0;
-    margin: 0 0 24px 0;
-    border: none;
   }
 
-  .tab-controls label {
-    background-color: white;
-    box-shadow: 8px 8px black;
-    border: 4px solid black;
-    padding: 12px;
-    margin: 0 16px 32px 16px;
-    color: rgb(0, 0, 238);
+  nav a {
+    color: blue;
   }
-
-  /* tab styling */
-
-  .tab-controls label {
-    padding: 0.5rem 0.75rem;
-    cursor: pointer;
-  }
-
-  .tab-controls input + label::before {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    content: "> ";
-  }
-
-  .tab-controls input + label::after {
-    opacity: 0;
-    content: "> ";
-  }
-
-  /* active tab */
-  .tab-controls input:checked + label {
-    text-decoration: underline;
-  }
-
-  .tab-controls input:checked + label::before {
-    opacity: 1;
-  }
-
-  /* hover tab */
-
-  .tab-controls input:hover + label {
-    text-decoration: underline;
-  }
-
-  /* panels */
-
-  .tab-panel {
-    display: none;
-  }
-
-  .tabs:has(#tab-projects:checked) .projects {
-    display: block;
-  }
-
-  .tabs:has(#tab-notes:checked) .notes {
-    display: block;
-  }
-
-  /* accessibility helper */
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-  }
-
-  /**/
 
   section,
   .section {

@@ -1,0 +1,69 @@
+.timeline {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    grid-auto-rows: auto;
+    column-gap: 4px;
+    row-gap: 1rem;
+    grid-template-areas:
+      ". truthkeep"
+      ". twelveeighty"
+      ". LHL"
+      ". karat"
+      ". tribalscale"
+      ". vouchr"
+      ". post-uoft"
+      ". rubikloud"
+      ". dcs"
+      ". uoft";
+    margin: 0 16px;
+}
+
+.marker {
+    grid-column: 1;
+    width: 28%;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.marker.lane-1 {
+    margin-left: 0;
+}
+
+.marker.lane-2 {
+    margin-left: 35%;
+}
+
+.marker.lane-3 {
+    margin-left: 67%;
+}
+
+section {
+    grid-column: 2;
+    margin: 0;
+}
+
+section .title {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+}
+
+section .title h3 {
+    margin: 0 0 4px 0;
+}
+
+section .title a {
+    color: blue;
+}
+
+.role {
+    color: grey;
+}
+
+.date-range {
+    color: grey;
+}
+
+.date-range span {
+    white-space: nowrap;
+}
