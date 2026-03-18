@@ -48,7 +48,6 @@ html {
   nav {
     display: flex;
     flex-direction: row;
-    justify-content: center;
   }
 
   nav a {
@@ -132,3 +131,7 @@ html {
   details[open] #summary2 {
     display: initial;
   }
+
+.text-nowrap {
+  white-space: nowrap;
+}
