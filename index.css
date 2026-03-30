@@ -9,6 +9,7 @@ html {
     padding: 32px 0 32px 0;
   }
 
+  header,
   main,
   footer {
     width: 100%;

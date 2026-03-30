@@ -1,0 +1,16 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will Ginsberg{% if page.title %} | {{ page.title }}{% endif %}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/index.css" />
+  <link
+    rel="preload"
+    fetchpriority="high"
+    as="image"
+    href="bg.svg"
+    type="image/svg+xml"
+  />
+  {% if page.extra_css %} {% for css in page.extra_css %}
+  <link rel="stylesheet" href="{{ css }}" />
+  {% endfor %} {% endif %}
+</head>

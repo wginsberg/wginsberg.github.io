@@ -1,381 +1,345 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Ginsberg | About</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="about.css" />
-    <link
-      rel="preload"
-      fetchpriority="high"
-      as="image"
-      href="bg.svg"
-      type="image/svg+xml"
-    />
-  </head>
+---
+layout: default
+title: About
+extra_css:
+  - about.css
+---
 
-  <body>
-    <div class="bg"></div>
+<section style="margin-left: 16px; width: fit-content">
+  <h2 style="margin: 0"><span role="presentation">></span>About me</h2>
+</section>
+<br />
 
-    <main>
-      <div class="section">
-        <h1>
-          Will Ginsberg
-          <span style="color: grey">| freelance web developer</span>
-        </h1>
-      </div>
-      <nav>
-        <a href="/" class="section">Home</a>
-        <a href="/notes" class="section">Notes</a>
-        <a href="/about" class="section link-active">About</a>
-      </nav>
+<section style="margin: 0 16px">
+  <div style="display: flex; flex-direction: column; gap: 4px">
+    <p style="margin: 0">Hi! I'm Will.</p>
 
-      <section style="margin-left: 16px; width: fit-content">
-        <h2 style="margin: 0"><span role="presentation">></span>About me</h2>
-      </section>
-      <br />
-
-      <section style="margin: 0 16px">
-        <div style="display: flex; flex-direction: column; gap: 4px">
-          <p style="margin: 0">Hi! I'm Will.</p>
-
-          <p style="margin: 0">
-            I have been developing web and mobile applications professionally
-            for about a decade. Some languages I typically use are TypeScript
-            and Python. Some frameworks and libraries I have used extensively
-            include React and NestJS. I also have experience with databases like
-            Postgres, cloud platforms like AWS, writing CI/CD pipelines, and
-            using Playwright for e2e testing.
-          </p>
-          <ul
-            style="
-              list-style-type: circle;
-              display: flex;
-              flex-direction: column;
-              gap: 4px;
-              margin-bottom: 0;
-            "
-          >
-            <li>will.j.ginsberg@gmail.com</li>
-            <li>
-              <a
-                href="https://github.com/wginsberg"
-                target="_blank"
-                rel="noopener noreferrer"
-                >github.com/wginsberg</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/will-ginsberg-31403bb9/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >LinkedIn</a
-              >
-            </li>
-          </ul>
-        </div>
-      </section>
-      <br />
-
-      <div class="timeline">
-        <div
-          style="grid-row: truthkeep; background-color: #9703e7"
-          class="marker lane-1"
-        ></div>
-
-        <div
-          style="grid-row: 1 / twelveeighty; background-color: rgb(61, 59, 55)"
-          class="marker lane-2"
-        ></div>
-
-        <div
-          style="
-            grid-row: LHL-end / twelveeighty-start;
-            background-color: #db5657;
-            margin-top: 100px;
-          "
-          class="marker lane-1"
-        ></div>
-        <div
-          style="grid-row: truthkeep / karat; background-color: #00bcc2"
-          class="marker lane-3"
-        ></div>
-
-        <div style="grid-row: tribalscale" class="marker lane-2"></div>
-
-        <div
-          style="grid-row: vouchr; background-color: #ffcb14"
-          class="marker lane-2"
-        ></div>
-
-        <div style="grid-row: dcs" class="marker lane-3"></div>
-
-        <div
-          style="grid-row: rubikloud; background-color: #58b9ad"
-          class="marker lane-3"
-        ></div>
-
-        <div
-          class="marker lane-2"
-          style="grid-row: post-uoft / uoft; background-color: #1e3765"
-        ></div>
-
-        <section style="background: linear-gradient(90deg, #9703e7, white 8px)">
-          <div class="title">
-            <div>
-              <h3>
-                <a
-                  href="https://truthkeep.ai/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Truthkeep.ai
-                </a>
-              </h3>
-              <div class="date-range">
-                <span>Senior Software Developer</span> |
-                <span>March 2025 - present</span>
-              </div>
-            </div>
-            <img src="assets/tk.svg" alt="" width="32" height="32" />
-          </div>
-          <p>
-            Truthkeep is a software company building AI based applications for
-            the
-            <span class="text-nowrap">semi-conductor</span> industry.
-          </p>
-          <p>I lead the development of two products:</p>
-          <ul>
-            <li>
-              Social media insights platform: Ingests data from forums and
-              social media sites and delivers AI analysis of customer sentiment
-              and industry trends.
-            </li>
-            <li>
-              Chatbot platform: A chatbot which can be embedded on our partner's
-              websites and answer questions based on their product documentation
-              and website contents.
-            </li>
-          </ul>
-          <p>
-            My work at Truthkeep has involved writing complex RAG pipelines
-            using LangGraph and techniques like document chunking, semantic
-            search, and corrective retrieval.
-          </p>
-        </section>
-        <section
-          style="background: linear-gradient(90deg, rgb(61, 59, 55), white 8px)"
+    <p style="margin: 0">
+      I have been developing web and mobile applications professionally for
+      about a decade. Some languages I typically use are TypeScript and Python.
+      Some frameworks and libraries I have used extensively include React and
+      NestJS. I also have experience with databases like Postgres, cloud
+      platforms like AWS, writing CI/CD pipelines, and using Playwright for e2e
+      testing.
+    </p>
+    <ul
+      style="
+        list-style-type: circle;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 0;
+      "
+    >
+      <li>will.j.ginsberg@gmail.com</li>
+      <li>
+        <a
+          href="https://github.com/wginsberg"
+          target="_blank"
+          rel="noopener noreferrer"
+          >github.com/wginsberg</a
         >
-          <div class="title">
-            <div>
-              <h3>
-                <a
-                  href="https://www.1280labs.ca"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >1280 Labs</a
-                >
-              </h3>
-              <div class="date-range">
-                <span>Senior Software Developer</span> |
-                <span>Feb 2024 - Present</span>
-              </div>
-            </div>
-            <img src="assets/1280.ico" alt="" width="32" height="32" />
-          </div>
-          <p>
-            I have contributed to and lead various projects on a contract basis.
-          </p>
-          <ul>
-            <li>
-              AI applications: Built several applications using OpenAI and other
-              LLM providers.
-            </li>
-            <li>
-              Mobile apps: I contributed to the development of a React Native
-              app
-            </li>
-            <li>
-              Webistes: I built and maintained websites with technologies like
-              NextJS and Webflow
-            </li>
-          </ul>
-        </section>
-        <section style="background: linear-gradient(90deg, #db5657, white 8px)">
-          <div class="title">
-            <div>
-              <h3>Lighthouse Labs</h3>
-              <div class="date-range">
-                <span>Mentor</span> |
-                <span>Feb 2022 - June 2024</span>
-              </div>
-            </div>
-            <img src="./assets/lhl.png" alt="" width="32" height="32" />
-          </div>
-          <p>
-            Lighthouse Labs was a coding bootcamp focused on teaching web
-            development fundamentals. I provided
-            <span class="nowrap">one-on-one</span> mentoring for dozens of
-            students on their web development journey. Topics covered included
-            HTML, CSS, clientside JavaScript, NodeJs, Postgres, Ruby on Rails,
-            and testing.
-          </p>
-        </section>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/will-ginsberg-31403bb9/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+      </li>
+    </ul>
+  </div>
+</section>
+<br />
 
-        <section style="background: linear-gradient(90deg, #58b9ad, white 8px)">
-          <div class="title">
-            <div>
-              <h3>
-                <a
-                  href="https://www.karat.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Karat</a
-                >
-              </h3>
-              <div class="date-range">
-                <span>Senior Interview Engineer</span> |
-                <span>Feb 2022 - present</span>
-              </div>
-            </div>
-            <img src="assets/karat.png" alt="" width="32" height="32" />
-          </div>
-          <p>
-            I conduct technical interviews on the Karat platform. I have
-            interviewed over 500 candidates on behalf of various companies.
-          </p>
-          <p>
-            Some of Karat's customers include Figma, Uber, Atlassian, PayPal,
-            and Citi.
-          </p>
-        </section>
-        <section style="background: linear-gradient(90deg, black, white 8px)">
-          <div class="title">
-            <div>
-              <h3>
-                <a
-                  href="https://www.tribalscale.ca"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >TribalScale</a
-                >
-              </h3>
-              <div class="date-range">
-                <span>Agile Software Engineer</span> |
-                <span>Dec 2019 - Aug 2021</span>
-              </div>
-            </div>
-            <img src="assets/tribalscale.png" alt="" width="32" height="32" />
-          </div>
-          <p>
-            I built web and mobile applications for various clients including
-            tech startups and fortune 500 media companies.
-          </p>
-          <p>
-            I learned a lot about React, NodeJs, test driven development, and
-            delivering projects from 0 to 1.
-          </p>
-        </section>
+<div class="timeline">
+  <div
+    style="grid-row: truthkeep; background-color: #9703e7"
+    class="marker lane-1"
+  ></div>
 
-        <section style="background: linear-gradient(90deg, #ffcb14, white 8px)">
-          <div class="title">
-            <div>
-              <h3>
-                <a
-                  href="https://www.vouchrtech.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Vouchr</a
-                >
-              </h3>
-              <div class="date-range">
-                <span>Frontend Engineer</span> |
-                <span>Feb 2019 - Nov 2019</span>
-              </div>
-            </div>
-            <img src="assets/vouchr.png" alt="" width="32" height="32" />
-          </div>
-          <p>I contributed to building Vouchr's e-greeting card SDK</p>
-        </section>
-        <div></div>
+  <div
+    style="grid-row: 1 / twelveeighty; background-color: rgb(61, 59, 55)"
+    class="marker lane-2"
+  ></div>
 
-        <section style="background: linear-gradient(90deg, #58b9ad, white 8px)">
-          <div class="title">
-            <div>
-              <h3>Rubikloud (Acquired by Kinaxis)</h3>
-              <div class="date-range">
-                <span>Software Developer</span> |
-                <span> May 2016 - August 2017</span>
-              </div>
-            </div>
-            <img src="assets/rubikloud.ico" alt="" width="32" height="32" />
-          </div>
-          <p>
-            I worked as an intern for 16 months at Rubikloud. The company was a
-            Big Data startup focused on the retail industry. I spent time with
-            four different teams:
-          </p>
-          <p><strong>Data Engineering</strong></p>
-          <p>
-            I used a tool called Talend to make data pipelines and investigated
-            data quality issues.
-          </p>
+  <div
+    style="
+      grid-row: LHL-end / twelveeighty-start;
+      background-color: #db5657;
+      margin-top: 100px;
+    "
+    class="marker lane-1"
+  ></div>
+  <div
+    style="grid-row: truthkeep / karat; background-color: #00bcc2"
+    class="marker lane-3"
+  ></div>
 
-          <p><strong>Platform Team</strong></p>
-          <p>
-            We developed customer-facing web dashboards. I learned ReactJS and
-            Java Spring Boot. This was my first time doing real web development
-            and I loved it!
-          </p>
+  <div style="grid-row: tribalscale" class="marker lane-2"></div>
 
-          <p><strong>Data Science Engineering</strong></p>
-          <p>I worked with Python to maintain data pipelines.</p>
+  <div
+    style="grid-row: vouchr; background-color: #ffcb14"
+    class="marker lane-2"
+  ></div>
 
-          <p><strong>Rubicore</strong></p>
-          <p>I used Scala to wrote pipelines utilizing HBase.</p>
-        </section>
+  <div style="grid-row: dcs" class="marker lane-3"></div>
 
-        <section style="background: linear-gradient(90deg, black, white 8px)">
-          <div class="title">
-            <div>
-              <h3>UofT Department of Computer Science</h3>
+  <div
+    style="grid-row: rubikloud; background-color: #58b9ad"
+    class="marker lane-3"
+  ></div>
 
-              <span class="date-range">
-                <span> Research Assistant</span> | <span>Summer 2015</span>
-              </span>
-            </div>
-            <img src="assets/uoft.ico" alt="" width="32" height="32" />
-          </div>
-          <p>
-            I was an assistant for the Software Engineering Research Group at
-            the University of Toronto. I wrote some Java and it didn't go very
-            well.
-          </p>
-        </section>
+  <div
+    class="marker lane-2"
+    style="grid-row: post-uoft / uoft; background-color: #1e3765"
+  ></div>
 
-        <section style="background: linear-gradient(90deg, #1e3765, white 8px)">
-          <div class="title">
-            <div>
-              <h3>University of Toronto</h3>
-              <div class="date-range"><span>2013 – 2018</span></div>
-            </div>
-            <img src="assets/uoft.ico" alt="" width="32" height="32" />
-          </div>
-
-          <p>
-            I studied Computer Science at the St. George campus, graduating with
-            an Honours Bachelor of Science.
-          </p>
-          <ul>
-            <li>Computer Science specialist</li>
-            <li>Mathematics minor</li>
-            <li>Focus in Web and Internet Technologies</li>
-          </ul>
-        </section>
+  <section style="background: linear-gradient(90deg, #9703e7, white 8px)">
+    <div class="title">
+      <div>
+        <h3>
+          <a
+            href="https://truthkeep.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Truthkeep.ai
+          </a>
+        </h3>
+        <div class="date-range">
+          <span>Senior Software Developer</span> |
+          <span>March 2025 - present</span>
+        </div>
       </div>
-    </main>
-  </body>
-  <script src="instantpage.js"></script>
-</html>
+      <img src="assets/tk.svg" alt="" width="32" height="32" />
+    </div>
+    <p>
+      Truthkeep is a software company building AI based applications for the
+      <span class="text-nowrap">semi-conductor</span> industry.
+    </p>
+    <p>I lead the development of two products:</p>
+    <ul>
+      <li>
+        Social media insights platform: Ingests data from forums and social
+        media sites and delivers AI analysis of customer sentiment and industry
+        trends.
+      </li>
+      <li>
+        Chatbot platform: A chatbot which can be embedded on our partner's
+        websites and answer questions based on their product documentation and
+        website contents.
+      </li>
+    </ul>
+    <p>
+      My work at Truthkeep has involved writing complex RAG pipelines using
+      LangGraph and techniques like document chunking, semantic search, and
+      corrective retrieval.
+    </p>
+  </section>
+  <section
+    style="background: linear-gradient(90deg, rgb(61, 59, 55), white 8px)"
+  >
+    <div class="title">
+      <div>
+        <h3>
+          <a
+            href="https://www.1280labs.ca"
+            target="_blank"
+            rel="noopener noreferrer"
+            >1280 Labs</a
+          >
+        </h3>
+        <div class="date-range">
+          <span>Senior Software Developer</span> |
+          <span>Feb 2024 - Present</span>
+        </div>
+      </div>
+      <img src="assets/1280.ico" alt="" width="32" height="32" />
+    </div>
+    <p>I have contributed to and lead various projects on a contract basis.</p>
+    <ul>
+      <li>
+        AI applications: Built several applications using OpenAI and other LLM
+        providers.
+      </li>
+      <li>
+        Mobile apps: I contributed to the development of a React Native app
+      </li>
+      <li>
+        Webistes: I built and maintained websites with technologies like NextJS
+        and Webflow
+      </li>
+    </ul>
+  </section>
+  <section style="background: linear-gradient(90deg, #db5657, white 8px)">
+    <div class="title">
+      <div>
+        <h3>Lighthouse Labs</h3>
+        <div class="date-range">
+          <span>Mentor</span> |
+          <span>Feb 2022 - June 2024</span>
+        </div>
+      </div>
+      <img src="./assets/lhl.png" alt="" width="32" height="32" />
+    </div>
+    <p>
+      Lighthouse Labs was a coding bootcamp focused on teaching web development
+      fundamentals. I provided
+      <span class="nowrap">one-on-one</span> mentoring for dozens of students on
+      their web development journey. Topics covered included HTML, CSS,
+      clientside JavaScript, NodeJs, Postgres, Ruby on Rails, and testing.
+    </p>
+  </section>
+
+  <section style="background: linear-gradient(90deg, #58b9ad, white 8px)">
+    <div class="title">
+      <div>
+        <h3>
+          <a
+            href="https://www.karat.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Karat</a
+          >
+        </h3>
+        <div class="date-range">
+          <span>Senior Interview Engineer</span> |
+          <span>Feb 2022 - present</span>
+        </div>
+      </div>
+      <img src="assets/karat.png" alt="" width="32" height="32" />
+    </div>
+    <p>
+      I conduct technical interviews on the Karat platform. I have interviewed
+      over 500 candidates on behalf of various companies.
+    </p>
+    <p>
+      Some of Karat's customers include Figma, Uber, Atlassian, PayPal, and
+      Citi.
+    </p>
+  </section>
+  <section style="background: linear-gradient(90deg, black, white 8px)">
+    <div class="title">
+      <div>
+        <h3>
+          <a
+            href="https://www.tribalscale.ca"
+            target="_blank"
+            rel="noopener noreferrer"
+            >TribalScale</a
+          >
+        </h3>
+        <div class="date-range">
+          <span>Agile Software Engineer</span> |
+          <span>Dec 2019 - Aug 2021</span>
+        </div>
+      </div>
+      <img src="assets/tribalscale.png" alt="" width="32" height="32" />
+    </div>
+    <p>
+      I built web and mobile applications for various clients including tech
+      startups and fortune 500 media companies.
+    </p>
+    <p>
+      I learned a lot about React, NodeJs, test driven development, and
+      delivering projects from 0 to 1.
+    </p>
+  </section>
+
+  <section style="background: linear-gradient(90deg, #ffcb14, white 8px)">
+    <div class="title">
+      <div>
+        <h3>
+          <a
+            href="https://www.vouchrtech.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Vouchr</a
+          >
+        </h3>
+        <div class="date-range">
+          <span>Frontend Engineer</span> |
+          <span>Feb 2019 - Nov 2019</span>
+        </div>
+      </div>
+      <img src="assets/vouchr.png" alt="" width="32" height="32" />
+    </div>
+    <p>I contributed to building Vouchr's e-greeting card SDK</p>
+  </section>
+  <div></div>
+
+  <section style="background: linear-gradient(90deg, #58b9ad, white 8px)">
+    <div class="title">
+      <div>
+        <h3>Rubikloud (Acquired by Kinaxis)</h3>
+        <div class="date-range">
+          <span>Software Developer</span> |
+          <span> May 2016 - August 2017</span>
+        </div>
+      </div>
+      <img src="assets/rubikloud.ico" alt="" width="32" height="32" />
+    </div>
+    <p>
+      I worked as an intern for 16 months at Rubikloud. The company was a Big
+      Data startup focused on the retail industry. I spent time with four
+      different teams:
+    </p>
+    <p><strong>Data Engineering</strong></p>
+    <p>
+      I used a tool called Talend to make data pipelines and investigated data
+      quality issues.
+    </p>
+
+    <p><strong>Platform Team</strong></p>
+    <p>
+      We developed customer-facing web dashboards. I learned ReactJS and Java
+      Spring Boot. This was my first time doing real web development and I loved
+      it!
+    </p>
+
+    <p><strong>Data Science Engineering</strong></p>
+    <p>I worked with Python to maintain data pipelines.</p>
+
+    <p><strong>Rubicore</strong></p>
+    <p>I used Scala to wrote pipelines utilizing HBase.</p>
+  </section>
+
+  <section style="background: linear-gradient(90deg, black, white 8px)">
+    <div class="title">
+      <div>
+        <h3>UofT Department of Computer Science</h3>
+
+        <span class="date-range">
+          <span> Research Assistant</span> | <span>Summer 2015</span>
+        </span>
+      </div>
+      <img src="assets/uoft.ico" alt="" width="32" height="32" />
+    </div>
+    <p>
+      I was an assistant for the Software Engineering Research Group at the
+      University of Toronto. I wrote some Java and it didn't go very well.
+    </p>
+  </section>
+
+  <section style="background: linear-gradient(90deg, #1e3765, white 8px)">
+    <div class="title">
+      <div>
+        <h3>University of Toronto</h3>
+        <div class="date-range"><span>2013 – 2018</span></div>
+      </div>
+      <img src="assets/uoft.ico" alt="" width="32" height="32" />
+    </div>
+
+    <p>
+      I studied Computer Science at the St. George campus, graduating with an
+      Honours Bachelor of Science.
+    </p>
+    <ul>
+      <li>Computer Science specialist</li>
+      <li>Mathematics minor</li>
+      <li>Focus in Web and Internet Technologies</li>
+    </ul>
+  </section>
+</div>
