@@ -1,0 +1,92 @@
+---
+layout: post
+title: Non-security reason to prefer cookies for auth
+---
+
+<style>
+    figure figcaption {
+        text-align: center;
+        margin-top: 0.5rem;
+        font-style: italic;
+        color: #757575
+    }
+
+    .screenshot {
+        margin: auto;
+        max-width: 100%;
+        border-radius: 12px 12px 24px 24px;
+        height: auto;
+    }
+
+    sup {
+        line-height: 0;
+        padding: 0 2px;
+    }
+</style>
+
+<p>
+    There are many discussions online about whether it is safe to store authentication tokens in the browser
+    localStorage<sup><a href="#footnote-1">1</a></sup>.
+
+    Apart from the security discsussion there is another compelling reason to favor cookies:
+
+    Cookies are sent on every request to the server.
+
+    This makes life easier when testing endpoints, for example while troubleshooting issues in production.
+</p>
+
+<h3>Opening a URL in the browser</h3>
+<p>Paste the URL of any protected API endpoint into the browser's address bar and access the results.</p>
+
+<figure>
+    <img fetchpriority="high" alt="screenshot of raw JSON response from the URL https://picsum.photos/v2/list"
+        src="/assets/2026-04-08-auth-token-storage/visit-json-file.png" width="480" height="480" class="screenshot" />
+    <figcaption>
+        Visiting the URL in the browser and seeing the data
+    </figcaption>
+</figure>
+
+<h3>Running fetch in the browser console</h3>
+
+<p>You can run
+    <code>fetch</code> against a protected API endpoint and access the results.
+</p>
+
+<figure>
+    <img alt="screen recording of running fetch from the browser dev tools console tab and the resulting network request in the network tab"
+        src="/assets/2026-04-08-auth-token-storage/console-fetch.gif" width="480" height="438" class="screenshot" />
+    <figcaption>
+        Running a fetch in the browser dev tools console
+    </figcaption>
+</figure>
+
+<h3>Swagger docs</h3>
+
+<p>Authentication works seamlessly in Swagger with no additional configuration.
+</p>
+
+<figure>
+    <img alt="screen recording of hitting protected API endpoints through the swagger ui"
+        src="/assets/2026-04-08-auth-token-storage/swagger.gif" width="480" height="911" class="screenshot" />
+    <figcaption>
+        Run your /login endpoint and proceed to hit any other endpoint in swagger
+    </figcaption>
+</figure>
+
+<p>The three use cases above all become more cumbersome (or impossible) when auth tokens are stored in localStorage
+    instead of cookies.</p>
+
+<hr />
+
+<ol>
+    <li id="footnote-1">
+        One side generally argues against using localStorage because your tokens can be stolen in a
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS" target="_blank"
+            rel="noopener noreferer">
+            XSS
+        </a>
+        attack. The other side generally argues that this not the right thing to worry about - through XSS the attacker
+        can steal all the user's data, including their username and password anyway. I don't find the counterargument
+        convincing. HTTP-only cookies are meaningfully more secure than localStorage.
+    </li>
+</ol>
