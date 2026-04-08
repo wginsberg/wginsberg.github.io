@@ -7,10 +7,13 @@
     rel="preload"
     fetchpriority="high"
     as="image"
-    href="bg.svg"
+    href="{{ site.baseurl }}/bg.svg"
     type="image/svg+xml"
   />
-  {% if page.extra_css %} {% for css in page.extra_css %}
-  <link rel="stylesheet" href="{{ css }}" />
-  {% endfor %} {% endif %}
+  {% for css in page.extra_css %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/{{ css }}" />
+  {% endfor %}
+  {% for css in layout.extra_css %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/{{ css }}" />
+  {% endfor %}
 </head>

@@ -9,16 +9,16 @@ br {
     column-gap: 4px;
     row-gap: 1rem;
     grid-template-areas:
-      ". truthkeep"
-      ". twelveeighty"
-      ". LHL"
-      ". karat"
-      ". tribalscale"
-      ". vouchr"
-      ". post-uoft"
-      ". rubikloud"
-      ". dcs"
-      ". uoft";
+        ". truthkeep"
+        ". twelveeighty"
+        ". LHL"
+        ". karat"
+        ". tribalscale"
+        ". vouchr"
+        ". post-uoft"
+        ". rubikloud"
+        ". dcs"
+        ". uoft";
     margin: 0 16px;
 }
 
@@ -61,11 +61,11 @@ section .title a {
 }
 
 .role {
-    color: grey;
+    color: #757575;
 }
 
 .date-range {
-    color: grey;
+    color: #757575;
 }
 
 .date-range span {
