@@ -350,10 +350,6 @@ extra_css:
     }
     if (!boundingMarkerEl) return
 
-
-    const newLeft = boundingMarkerEl.offsetLeft + boundingMarkerEl.offsetWidth / 2 - bubble.offsetWidth / 2
-    bubble.style.left = `${newLeft}px`;
-
     // Update year text
 
     const markerBottom = boundingMarkerEl.offsetTop + boundingMarkerEl.offsetHeight
