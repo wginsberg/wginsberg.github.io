@@ -318,14 +318,21 @@ extra_css:
   const markerEls = [...document.getElementsByClassName("marker")].toSorted((a, b) => b.offsetHeight - a.offsetHeight)
   const sectionEls = document.getElementsByTagName("section")
 
-  const minY = timeline.offsetTop - bubble.offsetHeight / 2
-  const maxY = timeline.offsetTop + timeline.offsetHeight - bubble.offsetHeight / 2
-
-  const currentYear = new Date().getFullYear()
-
   let mouseY;
 
   document.addEventListener("scroll", event => {
+    const hasMouse = window.matchMedia("(pointer: fine)").matches
+    if (!hasMouse) {
+      const minScrollPosition = timeline.offsetTop - window.innerHeight / 2
+      // 320 is a bit of a magic number here. 32px makes more sense but doesn't work for some reason.
+      const maxScrollPosition = document.children[0].offsetHeight - window.innerHeight + 320;
+      const scrollScalingFactor = (window.scrollY - minScrollPosition) / (maxScrollPosition - minScrollPosition)
+      const scrollScalingOffset = scrollScalingFactor * (window.innerHeight / 2)
+      const fakeMouseY = window.innerHeight / 2 + scrollScalingOffset
+
+      mouseY = fakeMouseY
+    }
+
     update()
   })
 
@@ -335,12 +342,31 @@ extra_css:
   });
 
   function update() {
-    // Update position
+    // updated called on page refresh when the scroll position is nonzero
+    if (document.readyState !== "complete") return
+
+    // Scroll event fired but there's been no mouse focus on within the window
+    if (mouseY === undefined) {
+      mouseY = window.innerHeight / 2
+    }
+
     const absoluteMouseY = window.scrollY + mouseY
+    const minY = timeline.offsetTop - bubble.offsetHeight / 2
+    const maxY = timeline.offsetTop + timeline.offsetHeight - bubble.offsetHeight / 2
+
+    // Hide bubble based on scroll/mouse position
+    if (absoluteMouseY < minY) {
+      bubble.style.transform = `translateY(-50%) scale(0)`
+    } else {
+      bubble.style.transform = `translateY(-50%) scale(1)`
+    }
+
+    const currentYear = new Date().getFullYear()
+
+    // Update position
     const y = Math.max(Math.min(absoluteMouseY, maxY), minY)
     const newTop = y - timeline.offsetTop
     bubble.style.top = `${newTop}px`
-
 
     let boundingMarkerEl;
     for (const markerEl of markerEls) {
