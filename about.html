@@ -317,17 +317,17 @@ extra_css:
   const yearEl = document.getElementById("timeline-bubble-year")
   const markerEls = [...document.getElementsByClassName("marker")].toSorted((a, b) => b.offsetHeight - a.offsetHeight)
   const sectionEls = document.getElementsByTagName("section")
+  const lastSectionEl = sectionEls[sectionEls.length - 1]
 
   let mouseY;
 
   document.addEventListener("scroll", event => {
-    const hasMouse = window.matchMedia("(pointer: fine)").matches
-    if (!hasMouse) {
+    if (!hasMouse()) {
       const minScrollPosition = timeline.offsetTop - window.innerHeight / 2
       // 320 is a bit of a magic number here. 32px makes more sense but doesn't work for some reason.
       const maxScrollPosition = document.children[0].offsetHeight - window.innerHeight + 320;
       const scrollScalingFactor = (window.scrollY - minScrollPosition) / (maxScrollPosition - minScrollPosition)
-      const scrollScalingOffset = scrollScalingFactor * (window.innerHeight / 2)
+      const scrollScalingOffset = easeInQuint(scrollScalingFactor) * (window.innerHeight / 2)
       const fakeMouseY = window.innerHeight / 2 + scrollScalingOffset
 
       mouseY = fakeMouseY
@@ -351,8 +351,11 @@ extra_css:
     }
 
     const absoluteMouseY = window.scrollY + mouseY
-    const minY = timeline.offsetTop - bubble.offsetHeight / 2
-    const maxY = timeline.offsetTop + timeline.offsetHeight - bubble.offsetHeight / 2
+    const minY = timeline.offsetTop// - bubble.offsetHeight / 2
+    // Allow mouse to go to bottom; on touch screen devices only to the middle of the last section
+    const maxY = hasMouse()
+        ? timeline.offsetTop + timeline.offsetHeight// - bubble.offsetHeight / 2
+        : timeline.offsetTop + timeline.offsetHeight - lastSectionEl.offsetHeight / 2;
 
     // Hide bubble based on scroll/mouse position
     if (absoluteMouseY < minY) {
@@ -415,5 +418,13 @@ extra_css:
     if (!Number.isInteger(year)) return
 
     yearEl.innerText = year
+  }
+
+  function hasMouse() {
+    return window.matchMedia("(pointer: fine)").matches
+  }
+
+  function easeInQuint( t ) {
+    return t * t * t * t * t;
   }
 </script>
