@@ -125,7 +125,7 @@ extra_css:
               </h3>
               <div class="date-range">
                 <span>Lead Software Engineer</span>
-                <span>Feb <date>2024</date> - Present</span>
+                <span>Feb <date>2024</date> - <date>present</date></span>
               </div>
             </div>
             <img src="assets/1280.ico" alt="" width="32" height="32" />
@@ -175,7 +175,7 @@ extra_css:
               </h3>
               <div class="date-range">
                 <span>Senior Interview Engineer</span>
-                <span>Feb <date>2022</date> - present</span>
+                <span>Feb <date>2022</date> - <date>present</date></span>
               </div>
             </div>
             <img src="assets/karat.png" alt="" width="32" height="32" />
@@ -312,20 +312,74 @@ extra_css:
 </main>
 
 <script>
+  /*
+    Timeline year bubble scroll effect
+  */
+  const CURRENT_YEAR = new Date().getFullYear()
+
+  // Element references
   const bubble = document.getElementById("timeline-bubble")
   const timeline = document.getElementById("timeline")
   const yearEl = document.getElementById("timeline-bubble-year")
-  const markerEls = [...document.getElementsByClassName("marker")].toSorted((a, b) => b.offsetHeight - a.offsetHeight)
-  const sectionEls = document.getElementsByTagName("section")
-  const lastSectionEl = sectionEls[sectionEls.length - 1]
+  const lastSectionEl = document.querySelector("section:last-child")
 
+  // Element sizing
+  let documentHeight;
+  let timelineTop;
+  let timelineLeft;
+  let timelineHeight;
+  let markers;
+  let sections;
+  let markerBounds;
+  let lastSectionHeight;
+
+  // Keep element sizes accurate outside of main animation frame
+  function onLayoutChange() {
+    documentHeight = document.children[0].offsetHeight
+    timelineTop = timeline.offsetTop;
+    timelineLeft = timeline.offsetLeft;
+    timelineHeight = timeline.offsetHeight;
+    lastSectionHeight = lastSectionEl.offsetHeight
+
+    markerEls = [...document.getElementsByClassName("marker")].toSorted((a, b) => b.offsetHeight - a.offsetHeight)
+    markers = []
+    for (const markerEl of markerEls) {
+      markers.push({
+        top: markerEl.offsetTop,
+        height: markerEl.offsetHeight,
+      })
+    }
+
+    const sectionEls = document.getElementsByTagName("section")
+    sections = []
+    for (const sectionEl of sectionEls) {
+      const top = sectionEl.offsetTop
+      const height = sectionEl.offsetHeight
+      const dateEls = [...sectionEl.getElementsByTagName("date")]
+      const years = dateEls
+        .map(({ innerText }) => innerText)
+        .map((text) => text.match(/present/i) ? CURRENT_YEAR : text)
+        .map(Number)
+        .filter(Number.isInteger)
+        .toSorted()
+
+      sections.push({ top, height, years })
+    }
+  }
+
+  onLayoutChange()
+  new ResizeObserver(onLayoutChange).observe(document.documentElement);
+  window.addEventListener('resize', onLayoutChange);
+
+  // Tracks real mouse position or fake position for touchscreen devices
   let mouseY;
 
+  // Handle scroll elements for all devices
   document.addEventListener("scroll", event => {
     if (!hasMouse()) {
-      const minScrollPosition = timeline.offsetTop - window.innerHeight / 2
+      const minScrollPosition = timelineTop - window.innerHeight / 2
       // 320 is a bit of a magic number here. 32px makes more sense but doesn't work for some reason.
-      const maxScrollPosition = document.children[0].offsetHeight - window.innerHeight + 320;
+      const maxScrollPosition = documentHeight - window.innerHeight + 320;
       const scrollScalingFactor = (window.scrollY - minScrollPosition) / (maxScrollPosition - minScrollPosition)
       const scrollScalingOffset = easeInQuint(scrollScalingFactor) * (window.innerHeight / 2)
       const fakeMouseY = window.innerHeight / 2 + scrollScalingOffset
@@ -336,82 +390,89 @@ extra_css:
     update()
   })
 
+  // Handle mouse movements for non-touch screen devices
   document.addEventListener("mousemove", event => {
     mouseY = event.clientY
     update()
   });
 
+  // Smoothly update timeline bubble
+  let ticking = false;
   function update() {
-    // updated called on page refresh when the scroll position is nonzero
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        _update();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  function _update() {
+    // Handle page refreshed with nonzero scrollY
     if (document.readyState !== "complete") return
 
-    // Scroll event fired but there's been no mouse focus on within the window
+    // Handle scroll event on this window with focus on another window
     if (mouseY === undefined) {
       mouseY = window.innerHeight / 2
     }
 
     const absoluteMouseY = window.scrollY + mouseY
-    const minY = timeline.offsetTop// - bubble.offsetHeight / 2
+    const minY = timelineTop
     // Allow mouse to go to bottom; on touch screen devices only to the middle of the last section
     const maxY = hasMouse()
-        ? timeline.offsetTop + timeline.offsetHeight// - bubble.offsetHeight / 2
-        : timeline.offsetTop + timeline.offsetHeight - lastSectionEl.offsetHeight / 2;
+      ? timelineTop + timelineHeight
+      : timelineTop + timelineHeight - lastSectionHeight / 2;
 
     // Hide bubble based on scroll/mouse position
+    const visible = true;
     if (absoluteMouseY < minY) {
-      bubble.style.transform = `translateY(-50%) scale(0)`
+      bubble.style.opacity = 0;
     } else {
-      bubble.style.transform = `translateY(-50%) scale(1)`
+      bubble.style.opacity = 1;
     }
-
-    const currentYear = new Date().getFullYear()
 
     // Update position
-    const y = Math.max(Math.min(absoluteMouseY, maxY), minY)
-    const newTop = y - timeline.offsetTop
-    bubble.style.top = `${newTop}px`
+    const timelineViewportTop = timelineTop - window.scrollY
+    const timelineViewportBottom = timelineTop + timelineHeight - window.scrollY
+    const y = Math.min(Math.max(mouseY, timelineViewportTop), timelineViewportBottom)
+    const newTop = y
+    bubble.style.transform = `translateY(calc(-50% + ${newTop}px))`;
 
-    let boundingMarkerEl;
-    for (const markerEl of markerEls) {
-      if (newTop >= markerEl.offsetTop && newTop <= markerEl.offsetTop + markerEl.offsetHeight) {
-        boundingMarkerEl = markerEl
+    let boundingMarker;
+    const absoluteTop = newTop + window.scrollY;
+    for (const marker of markers) {
+      if (absoluteTop >= marker.top && absoluteTop <= marker.top + marker.height) {
+        boundingMarker = marker
       }
     }
-    if (!boundingMarkerEl) return
+    if (!boundingMarker) return
 
     // Update year text
 
-    const markerBottom = boundingMarkerEl.offsetTop + boundingMarkerEl.offsetHeight
+    const markerBottom = boundingMarker.top + boundingMarker.height
 
     let relatedSection;
     let minRelatedSectionDistance = Number.MAX_VALUE
-    for (const sectionEl of sectionEls) {
-      const sectionBottom = sectionEl.offsetTop + sectionEl.offsetHeight
+    for (const section of sections) {
+      const sectionBottom = section.top + section.height
       const distance = Math.abs(sectionBottom - markerBottom)
       if (distance < minRelatedSectionDistance) {
         minRelatedSectionDistance = distance
-        relatedSection = sectionEl
+        relatedSection = section
       }
     }
 
     if (!relatedSection) return
 
-    const dateEls = [...relatedSection.getElementsByTagName("date")]
-    const visibleYears = dateEls
-      .map(({ innerText }) => innerText)
-      .map((text) => text.match(/present/i) ? currentYear : text)
-      .map(Number)
-      .filter(Number.isInteger)
-      .toSorted()
-
-
+    const visibleYears = relatedSection.years
     const minYear = Math.min(...visibleYears)
     const maxYear = Math.max(...visibleYears)
     const allYears = Array
       .from({ length: 1 + maxYear - minYear })
       .map((_, i) => minYear + i)
 
-    const scaledPosition = (markerBottom - newTop) / boundingMarkerEl.offsetHeight
+    const scaledPosition = (markerBottom - absoluteTop) / boundingMarker.height
     const yearIndex = Math.floor(scaledPosition * allYears.length)
     const year = allYears[yearIndex]
 
@@ -424,7 +485,7 @@ extra_css:
     return window.matchMedia("(pointer: fine)").matches
   }
 
-  function easeInQuint( t ) {
+  function easeInQuint(t) {
     return t * t * t * t * t;
   }
 </script>
