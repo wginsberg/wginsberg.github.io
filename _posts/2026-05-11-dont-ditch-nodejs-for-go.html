@@ -1,0 +1,118 @@
+---
+layout: post
+title: Don't ditch NodeJS for Golang
+---
+
+<style>
+    ol {
+        padding-left: 1rem;
+    }
+</style>
+
+<p>
+    After reading <a href="https://blainsmith.com/articles/just-fucking-use-go" target="_blank"
+        rel="noopener noreferer">
+        Just fucking use Go
+    </a> I have
+    thoughts.
+<p>
+    Here's some arguments that I don't agree with:
+</p>
+</p>
+
+<ol>
+    <li>
+        <h3>
+            Go is good because you can avoid using Docker
+        </h3>
+        <p>
+            One reason we use Docker is to ensure that external binaries are available at runtime. This can include
+            things like <code>curl</code>, <code>ffmpeg</code>, <code>imagemagick</code>, pdf converters, etc. Having
+            the right combination of these installed,
+            with
+            the correct version, is a problem you'll
+            face whether you're running a NodeJS process a Go binary.
+        </p>
+    </li>
+    <li>
+        <h3>
+            Go is good because it makes formatting easy
+        </h3>
+        <p>
+            Fair point, life would be easier without having to configure your formatter and linter.
+            Though the whole point of configuring a formatter is that you <i>don't</i> commit a bunch of white space
+            changes all the time. Whether you deal with <code>gofmt</code>, prettier, or anything else, developers
+            can format their code
+            before they commit it, and the CI pipeline can enforce it.
+        </p>
+    </li>
+    <li>
+        <h3>
+            No lockfile drift between dev and CI
+        </h3>
+        <p>
+            This is not a problem I run into. The CI pipeline does a <a
+                href="https://docs.npmjs.com/cli/v9/commands/npm-ci" target="_blank" rel="noopener noreferer">npm
+                ci</a>. Notably this ensures that:
+        </p>
+        <blockquote>
+            If dependencies in the package lock do not match those in package.json, npm ci will exit with an error,
+            instead of updating the package lock.
+        </blockquote>
+    </li>
+    <li>
+        <h3>
+            Deployment is a copy command
+        </h3>
+        <p>
+            This does sound attractive. Although, for even moderately complex projects, we're often going to build a
+            Docker
+            image anyway (see above). And if we already did that work, we can take advantage of something like ECS,
+            Cloud Run,
+            etc. and get healthchecks, rollbacks, blue/green deployments, managed environment variables, etc. for free.
+        </p>
+    </li>
+    <li>
+        <h3>
+            Error handling is better in Go
+        </h3>
+        <blockquote>
+            Your try/catch nesting hellscape doesn't make errors disappear, it just hides them until production at 2am.
+        </blockquote>
+        <p>
+            The best error handling is not explicitly handling errors. That's true in any
+            language.
+            With a framework like NestJS, for example, unhandled errors in processing a request will result in an
+            automatic HTTP 500. When using <a href="https://docs.nestjs.com/recipes/prisma" target="_blank"
+                rel="noopener noreferer">Prisma</a>, a
+            missing database record can automatically trigger an HTTP 404. No <code>try/catch</code> needed.
+        </p>
+
+    </li>
+    <li>
+        <h3>
+            Create a whole dynamic page in a few lines of code
+        </h3>
+        <p>
+        <blockquote>
+            <i>
+                Database, templates, and an HTTP handler in one screen
+            </i>
+        </blockquote>
+
+        <p>
+            Looks a lot like React Router (v7). Or TanStack Start. Or plain Express with EJS templates.
+        </p>
+        The ORMs, dependency injection, service layers, and <code>controllers/</code>
+        directory are never strictly needed; at some point they can be useful in managing complexity
+        which does tend to emerge.
+        </p>
+    </li>
+</ol>
+
+<hr />
+
+<p>
+    In conclusion: more power to anyone using Golang. For the time being I'm going to keep developing backends
+    with NodeJS, and I'm happy to keep just one language in my head at once.
+</p>

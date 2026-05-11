@@ -2,3 +2,11 @@ li:target {
     background-color: lightyellow;
     font-weight: bold;
 }
+
+blockquote {
+    border-left: 4px solid #333;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    font-style: italic;
+    margin: 1.5em 10px;
+}
