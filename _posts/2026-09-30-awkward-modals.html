@@ -1,0 +1,136 @@
+---
+layout: post
+title: Modals can just be awkward
+---
+
+<style>
+    figure figcaption {
+        text-align: center;
+        margin-top: 0.5rem;
+        font-style: italic;
+        color: #757575
+    }
+
+    .screenshot {
+        margin: auto;
+        max-width: 100%;
+        border-radius: 12px 12px 24px 24px;
+        height: auto;
+    }
+
+    sup {
+        line-height: 0;
+        padding: 0 2px;
+    }
+</style>
+
+<p>
+    Some modals are really bad. <sup><a href="#footnote-1">1</a></sup>
+</p>
+<p>But even the good ones can be <span style="display:inline-block; transform: skewX(8deg);">awkward</span>.</p>
+
+
+<h3>1 - Sorry, I can't send you a link to that</h3>
+<p>
+    Suppose we are implementing a page with a list of products, and clicking on a product opens a modal which shows
+    product details.
+    How can the user share a link to those product details with someone else? Since it's not a page it doesn't have a
+    URL of its own and there is no link to share.
+</p>
+<figure>
+    <img fetchpriority="high" alt="" src="/assets/2026-09-30-awkward-modals/modals-1.gif" width="306" height="530"
+        class="screenshot" />
+    <figcaption>
+        Opening a product detail modal with no URL update.
+    </figcaption>
+</figure>
+
+<h3>2 - How do I re-open that?</h3>
+<p>
+    We can solve <strong>1</strong> by updating the URL with something like this:
+    <code>/products?productId=xyz</code>
+</p>
+<p>
+    Now consider what happens if I open the link, proceed to close the modal, and then want to open it again.
+</p>
+<p>
+    It's possible that the product was not actually displayed in the product list, and I have no way to open it again.
+</p>
+<figure>
+    <img fetchpriority="high" alt="" src="/assets/2026-09-30-awkward-modals/modals-2.gif" width="306" height="530"
+        class="screenshot" />
+    <figcaption>
+        Closing a product detail modal with no way to re-open it.
+    </figcaption>
+</figure>
+
+
+<h3>3 - Browser history to the rescue? </h3>
+<p>
+    If our updated URL adds entries to the browser history, then <strong>2</strong> can be solved by just hitting the
+    browser "back" button. Of course, not everyone will realize that they can hit "back" and get back to the modal. Even
+    if they do, do we even want this?
+</p>
+<p>
+    I'd argue not really. Having modals open and close in response to the back/forward buttons in the browser is often
+    going to just be unexpected.
+</p>
+<p>
+    It's awkward.
+</p>
+<figure>
+    <img fetchpriority="high" alt="" src="/assets/2026-09-30-awkward-modals/modals-3.gif" width="306" height="530"
+        class="screenshot" />
+    <figcaption>
+        Opening and closing product detail modals with the browser "back" and "forward" buttons.
+    </figcaption>
+</figure>
+
+<h3>Use pages instead</h3>
+<p>
+    Pages do not have any of the problems listed above. Pages have URLS. They can be re-opened
+    with links. Users understand that they can re-visit pages by moving forward and backward through their browser
+    history.
+    <sup><a href="#footnote-2">2</a></sup>
+</p>
+
+<h3>Modal rules of thumb</h3>
+<p>Here's where I think modals are ok to use:</p>
+<ul>
+    <li>
+        Using a modal for confirming an action is fine.
+    </li>
+    <li>
+        If the user clicks a button to display a help message, it's fine to display that in a modal.
+    </li>
+    <li>
+        If you need to display an urgent notice to new users, a modal could be fine for that too.
+    </li>
+</ul>
+
+<hr />
+
+<ol>
+    <li id="footnote-1">
+        <span>Really bad modals</span>
+        <ul>
+            <li>
+                Fail to lock scrolling on the page behind the modal
+            </li>
+            <li>Fail to trap keyboard focus in the modal</li>
+            <li>Are missing attributes like <code>role="dialog"</code> and
+                <code>aria-labelledby</code> which is not ideal for <a
+                    href="https://developer.mozilla.org/en-US/docs/Glossary/Screen_reader" target="_blank"
+                    rel="noopener noreferrer"> screen readers</a>
+            </li>
+        </ul>
+        <span>
+            If you use a component library like
+            <a href="https://mantine.dev/core/modal/" target="_blank" rel="noopener noreferrer">Mantine</a>
+            these things are handled out of the box.
+        </span>
+    </li>
+    <li id="footnote-2">
+        <span>I hope anyway. If they don't, you may have bigger problems.</span>
+    </li>
+</ol>
